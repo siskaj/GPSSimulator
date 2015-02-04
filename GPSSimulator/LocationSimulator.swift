@@ -9,34 +9,36 @@
 import UIKit
 import MapKit
 
-func dispatch_after_delay(delay: NSTimeInterval, queue: dispatch_queue_t, block: dispatch_block_t) {
-  let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-  dispatch_after(time, queue, block)
+func delay(delay:Double, closure:()->()) {
+  dispatch_after(
+    dispatch_time(
+      DISPATCH_TIME_NOW,
+      Int64(delay * Double(NSEC_PER_SEC))
+    ),
+    dispatch_get_main_queue(), closure)
 }
 
+
 class LocationSimulator: CLLocationManager {
-  
-  class var shared: LocationSimulator {
     
-    struct Static {
-      static let instance : LocationSimulator = LocationSimulator()
-    }
-    
-    return Static.instance
-  }
-  
-  var previousLocation: CLLocation?
-  var currentLocation: CLLocation?
-  var aMapView: MKMapView?
-  var bKeepRunning: Bool?
+  var previousLocation: CLLocation!
+  var currentLocation: CLLocation!
+  let mapView: MKMapView
+  var bKeepRunning: Bool = true
   
   private var index: Int = 0
   private var updatingLocation: Bool?
-  private var fakeLocations: [CLLocation]!
-  private var updateInterval: NSTimeInterval = 0.3
+  var fakeLocations: [CLLocation] = [CLLocation]()
+  private var updateInterval: NSTimeInterval = 2.0
   
-  private var conQueue: dispatch_queue_t!
-  
+  init(mapView: MKMapView, filePath: String) {
+    self.mapView = mapView
+    super.init()
+    self.loadGPXFile(filePath)
+    let location = fakeLocations.first
+    self.previousLocation = location!
+    self.currentLocation = location!
+  }
   
   func loadGPXFile(filePath: String) {
     let root = GPXParser.parseGPXAtPath(filePath)
@@ -50,23 +52,20 @@ class LocationSimulator: CLLocationManager {
       }
     }
   }
-  
+    
   func fakeNewLocation() {
-    previousLocation = previousLocation ?? currentLocation
-    if currentLocation?.distanceFromLocation(previousLocation) > distanceFilter {
-      let loc = [previousLocation!, currentLocation!]
+    if currentLocation.distanceFromLocation(previousLocation) > distanceFilter {
+      let loc = [previousLocation, currentLocation]
       delegate.locationManager!(self, didUpdateLocations: loc)
-      previousLocation! = currentLocation!
+      previousLocation = currentLocation
     }
     
-    if let theMapView = aMapView {
-      theMapView.userLocation.setCoordinate(currentLocation!.coordinate)
-    }
+      mapView.userLocation.setCoordinate(currentLocation.coordinate)
     if updatingLocation! {
       index++
       if index == fakeLocations.count {
         index = 0
-        if !bKeepRunning! {
+        if !bKeepRunning {
           stopUpdatingLocation()
           updatingLocation! = false
         } else {
@@ -75,15 +74,14 @@ class LocationSimulator: CLLocationManager {
       } else {
         currentLocation = fakeLocations[index]
       }
-      dispatch_after_delay(updateInterval, conQueue, fakeNewLocation)
+      delay(updateInterval, fakeNewLocation)
     }
   }
 
   override func startUpdatingLocation() {
-    conQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
     updatingLocation = true
-    distanceFilter = 30.0
-    currentLocation = fakeLocations.first
+    distanceFilter = 10.0
+    currentLocation = fakeLocations.first!
     fakeNewLocation()
   }
     

@@ -16,23 +16,22 @@ class ViewController: UIViewController, MKMapViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    locationManager = LocationSimulator(mapView: mapView, filePath: NSBundle.mainBundle().pathForResource("Afternoon Ride", ofType: "gpx")!)
+    
     mapView.showsUserLocation = true
-    var lat: CLLocationDegrees = 45.4544060
-    var lon: CLLocationDegrees = 9.1726280
-    mapView.centerCoordinate = CLLocationCoordinate2DMake(lat, lon)
+    
+    mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
     mapView.delegate = self
-    var region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat, lon), 1000, 1000)
+    var region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
     mapView.setRegion(region, animated: true)
     
-    locationManager = LocationSimulator.shared
-    locationManager.loadGPXFile(NSBundle.mainBundle().pathForResource("Afternoon Ride", ofType: "gpx")!)
     locationManager.delegate = self
-    locationManager.aMapView = mapView
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
     
     locationManager.startUpdatingLocation()
     
-//    dispatch_after_delay(5, dispatch_get_main_queue(), locationManager.startUpdatingLocation)
+    delay(60, locationManager.startUpdatingLocation)
   }
   
   private func checkLocationAuthorizationStatus() {
