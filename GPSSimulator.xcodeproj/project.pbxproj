@@ -65,6 +65,9 @@
 		858D10101A7F62F000C7390E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 858D100F1A7F62F000C7390E /* Images.xcassets */; };
 		858D10131A7F62F000C7390E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858D10111A7F62F000C7390E /* LaunchScreen.xib */; };
 		858D101F1A7F62F100C7390E /* GPSSimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D101E1A7F62F100C7390E /* GPSSimulatorTests.swift */; };
+		85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85969DCE1A7FF47200A230AD /* LocationSimulator.swift */; };
+		859ECAE41A813F0100734297 /* 1_Ammergauer.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */; };
+		859ECAE51A813F0100734297 /* Afternoon Ride.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE31A813F0100734297 /* Afternoon Ride.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +180,10 @@
 		858D10181A7F62F000C7390E /* GPSSimulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSSimulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		858D101D1A7F62F100C7390E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		858D101E1A7F62F100C7390E /* GPSSimulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSSimulatorTests.swift; sourceTree = "<group>"; };
+		85969DCE1A7FF47200A230AD /* LocationSimulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSimulator.swift; sourceTree = "<group>"; };
+		859ECAE01A80965900734297 /* MyPlayground1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground1.playground; sourceTree = "<group>"; };
+		859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 1_Ammergauer.gpx; sourceTree = "<group>"; };
+		859ECAE31A813F0100734297 /* Afternoon Ride.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Afternoon Ride.gpx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				858D10051A7F62F000C7390E /* GPSSimulator */,
+				859ECAE61A813F1400734297 /* Resources */,
 				858D101B1A7F62F100C7390E /* GPSSimulatorTests */,
 				85073D2C1A7FC02600CFFF7E /* GPX */,
 				85073D3B1A7FC02600CFFF7E /* GPXTests */,
@@ -328,12 +336,14 @@
 			isa = PBXGroup;
 			children = (
 				858D10081A7F62F000C7390E /* AppDelegate.swift */,
+				85969DCE1A7FF47200A230AD /* LocationSimulator.swift */,
 				858D100A1A7F62F000C7390E /* ViewController.swift */,
 				858D100C1A7F62F000C7390E /* Main.storyboard */,
 				85073DAB1A7FC25F00CFFF7E /* GPSSimulator-Bridging-Header.h */,
 				858D100F1A7F62F000C7390E /* Images.xcassets */,
 				858D10111A7F62F000C7390E /* LaunchScreen.xib */,
 				858D10061A7F62F000C7390E /* Supporting Files */,
+				859ECAE01A80965900734297 /* MyPlayground1.playground */,
 			);
 			path = GPSSimulator;
 			sourceTree = "<group>";
@@ -361,6 +371,15 @@
 				858D101D1A7F62F100C7390E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		859ECAE61A813F1400734297 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */,
+				859ECAE31A813F0100734297 /* Afternoon Ride.gpx */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -542,8 +561,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				858D100E1A7F62F000C7390E /* Main.storyboard in Resources */,
+				859ECAE51A813F0100734297 /* Afternoon Ride.gpx in Resources */,
 				858D10131A7F62F000C7390E /* LaunchScreen.xib in Resources */,
 				858D10101A7F62F000C7390E /* Images.xcassets in Resources */,
+				859ECAE41A813F0100734297 /* 1_Ammergauer.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +619,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */,
 				858D100B1A7F62F000C7390E /* ViewController.swift in Sources */,
 				858D10091A7F62F000C7390E /* AppDelegate.swift in Sources */,
 			);
@@ -888,6 +910,7 @@
 				85073D461A7FC02600CFFF7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85073D4A1A7FC02700CFFF7E /* Build configuration list for PBXNativeTarget "GPXTests" */ = {
 			isa = XCConfigurationList;
@@ -896,6 +919,7 @@
 				85073D481A7FC02600CFFF7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		858D0FFE1A7F62F000C7390E /* Build configuration list for PBXProject "GPSSimulator" */ = {
 			isa = XCConfigurationList;
