@@ -8,30 +8,42 @@
 
 import UIKit
 import MapKit
+import BrightFutures
 
 class ViewController: UIViewController, MKMapViewDelegate {
 
   @IBOutlet weak var mapView: MKMapView!
   var locationManager: LocationSimulator!
+  var fakeLocations: [CLLocation] = [CLLocation]()
   
   override func viewDidLoad() {
+    
+    // callback, ktery zavolam, pote co se najdou mista, cesta mezi nimi a vytvori FakeLocationArray
+    func setupController(fakeLocations : FakeLocationsArray) {
+      locationManager = LocationSimulator(mapView: mapView, fakeLocations: fakeLocations)
+      mapView.showsUserLocation = true
+      
+      mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
+      mapView.delegate = self
+      var region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
+      mapView.setRegion(region, animated: true)
+      
+      locationManager.delegate = self
+      locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+      
+      locationManager.startUpdatingLocation()
+      
+      delay(60, locationManager.startUpdatingLocation)
+
+    }
+    
     super.viewDidLoad()
     
-    locationManager = LocationSimulator(mapView: mapView, filePath: NSBundle.mainBundle().pathForResource("Afternoon Ride", ofType: "gpx")!)
+    let pole: Future<FakeLocationsArray> = setupScenario()
+    pole.onSuccess(setupController)
     
-    mapView.showsUserLocation = true
+//    locationManager = LocationSimulator(mapView: mapView, filePath: NSBundle.mainBundle().pathForResource("Afternoon Ride", ofType: "gpx")!)
     
-    mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
-    mapView.delegate = self
-    var region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
-    mapView.setRegion(region, animated: true)
-    
-    locationManager.delegate = self
-    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-    
-    locationManager.startUpdatingLocation()
-    
-    delay(60, locationManager.startUpdatingLocation)
   }
   
   private func checkLocationAuthorizationStatus() {

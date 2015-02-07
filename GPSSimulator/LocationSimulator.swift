@@ -40,6 +40,14 @@ class LocationSimulator: CLLocationManager {
     self.currentLocation = location!
   }
   
+  init(mapView: MKMapView, fakeLocations: FakeLocationsArray) {
+    self.mapView = mapView
+    self.fakeLocations = fakeLocations
+    let location = fakeLocations.first
+    self.previousLocation = location!
+    self.currentLocation = location!
+  }
+  
   func loadGPXFile(filePath: String) {
     let root = GPXParser.parseGPXAtPath(filePath)
     
