@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,21 +20,66 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bo5-dA-SA7">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyo-qV-lNb">
+                                <rect key="frame" x="361" y="335" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3NA-hU-J3F"/>
+                                    <constraint firstAttribute="height" constant="200" id="Lru-T2-Q9H"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="7g2-IZ-Wm3" kind="embed" id="Jes-GH-GI1"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bo5-dA-SA7" secondAttribute="trailing" id="3DF-FB-e7r"/>
                             <constraint firstItem="bo5-dA-SA7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="HEk-Nz-EKo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nyo-qV-lNb" secondAttribute="trailing" constant="23" id="VVv-yv-z0M"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="nyo-qV-lNb" secondAttribute="bottom" constant="65" id="Wdy-ki-6ui"/>
                             <constraint firstItem="bo5-dA-SA7" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="rKa-UV-JFZ"/>
                             <constraint firstItem="bo5-dA-SA7" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="xop-AV-CwW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="container" destination="nyo-qV-lNb" id="A6E-cr-z38"/>
                         <outlet property="mapView" destination="bo5-dA-SA7" id="yal-3a-dyF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="YaM-Cn-Y7T">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7g2-IZ-Wm3" customClass="DetailViewController" customModule="GPSSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t4v-DC-S55"/>
+                        <viewControllerLayoutGuide type="bottom" id="J4b-WL-opY"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="lOx-ND-3w5">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nVA-J2-VSD">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nVA-J2-VSD" secondAttribute="trailing" id="Gdf-03-0eR"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="top" secondItem="t4v-DC-S55" secondAttribute="bottom" id="HHv-Jw-FOt"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="leading" secondItem="lOx-ND-3w5" secondAttribute="leading" id="IJU-vl-hYg"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="bottom" secondItem="J4b-WL-opY" secondAttribute="top" id="Wt7-Hl-Sdf"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="imageView" destination="nVA-J2-VSD" id="fYj-vs-6qT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LoM-pH-Mcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="325" y="966"/>
         </scene>
     </scenes>
 </document>
