@@ -59,6 +59,7 @@
 		85073DA81A7FC10800CFFF7E /* GPXWaypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 85073D791A7FC10800CFFF7E /* GPXWaypoint.m */; };
 		85073DA91A7FC10800CFFF7E /* GPXXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 85073D7A1A7FC10800CFFF7E /* GPXXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85073DAA1A7FC10800CFFF7E /* GPXXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 85073D7B1A7FC10800CFFF7E /* GPXXML.m */; };
+		852D3EC41A88819600847F7F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852D3EC31A88819600847F7F /* DetailViewController.swift */; };
 		858D10091A7F62F000C7390E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D10081A7F62F000C7390E /* AppDelegate.swift */; };
 		858D100B1A7F62F000C7390E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D100A1A7F62F000C7390E /* ViewController.swift */; };
 		858D100E1A7F62F000C7390E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 858D100C1A7F62F000C7390E /* Main.storyboard */; };
@@ -138,6 +139,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		85009EB41A87BEA100316093 /* MyPlayground2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground2.playground; sourceTree = "<group>"; };
 		85073D2B1A7FC02600CFFF7E /* GPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85073D2E1A7FC02600CFFF7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85073D2F1A7FC02600CFFF7E /* GPX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPX.h; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		85073D7A1A7FC10800CFFF7E /* GPXXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXXML.h; sourceTree = "<group>"; };
 		85073D7B1A7FC10800CFFF7E /* GPXXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXXML.m; sourceTree = "<group>"; };
 		85073DAB1A7FC25F00CFFF7E /* GPSSimulator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GPSSimulator-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		852D3EC31A88819600847F7F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		858D10031A7F62F000C7390E /* GPSSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		858D10071A7F62F000C7390E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		858D10081A7F62F000C7390E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -362,6 +365,7 @@
 			children = (
 				858D10081A7F62F000C7390E /* AppDelegate.swift */,
 				85969DCE1A7FF47200A230AD /* LocationSimulator.swift */,
+				852D3EC31A88819600847F7F /* DetailViewController.swift */,
 				858D100A1A7F62F000C7390E /* ViewController.swift */,
 				85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */,
 				858D100C1A7F62F000C7390E /* Main.storyboard */,
@@ -370,6 +374,7 @@
 				858D10111A7F62F000C7390E /* LaunchScreen.xib */,
 				858D10061A7F62F000C7390E /* Supporting Files */,
 				859ECAE01A80965900734297 /* MyPlayground1.playground */,
+				85009EB41A87BEA100316093 /* MyPlayground2.playground */,
 			);
 			path = GPSSimulator;
 			sourceTree = "<group>";
@@ -680,6 +685,7 @@
 			files = (
 				85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */,
 				858D100B1A7F62F000C7390E /* ViewController.swift in Sources */,
+				852D3EC41A88819600847F7F /* DetailViewController.swift in Sources */,
 				85FBD4D61A82B3A700F7A5A0 /* ViewControllerDataModel.swift in Sources */,
 				858D10091A7F62F000C7390E /* AppDelegate.swift in Sources */,
 			);

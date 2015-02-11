@@ -12,14 +12,19 @@ import BrightFutures
 
 class ViewController: UIViewController, MKMapViewDelegate {
 
+  @IBOutlet weak var container: UIView!
   @IBOutlet weak var mapView: MKMapView!
   var locationManager: LocationSimulator!
   var fakeLocations: [CLLocation] = [CLLocation]()
+  var route: MKRoute!
   
   override func viewDidLoad() {
+    func setupRoute(route: MKRoute) {
+      self.route = route
+    }
     
     // callback, ktery zavolam, pote co se najdou mista, cesta mezi nimi a vytvori FakeLocationArray
-    func setupController(fakeLocations : FakeLocationsArray) {
+    func setupPole(fakeLocations: FakeLocationsArray) {
       locationManager = LocationSimulator(mapView: mapView, fakeLocations: fakeLocations)
       mapView.showsUserLocation = true
       
@@ -39,8 +44,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     super.viewDidLoad()
     
-    let pole: Future<FakeLocationsArray> = setupScenario()
-    pole.onSuccess(setupController)
+    let (route,pole): (Future<MKRoute>,Future<FakeLocationsArray>) = setupScenario()
+    route.onSuccess(callback:setupRoute)
+    pole.onSuccess(callback: setupPole)
     
 //    locationManager = LocationSimulator(mapView: mapView, filePath: NSBundle.mainBundle().pathForResource("Afternoon Ride", ofType: "gpx")!)
     
@@ -85,6 +91,9 @@ extension ViewController: CLLocationManagerDelegate {
       if oldLocation?.coordinate.latitude != theNewLocation.coordinate.latitude || oldLocation?.coordinate.longitude != theNewLocation.coordinate.longitude {
         let region = MKCoordinateRegionMakeWithDistance(theNewLocation.coordinate, 100, 100)
         mapView.setRegion(region, animated: true)
+        var camera = mapView.camera
+        camera.heading = locationManager.course(oldLocation!, point2: newLocation!)
+        mapView.setCamera(camera, animated: true)
       }
     }
   }
