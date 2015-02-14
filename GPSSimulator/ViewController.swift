@@ -15,7 +15,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
   @IBOutlet weak var container: UIView!
   @IBOutlet weak var mapView: MKMapView!
   var locationManager: LocationSimulator!
-  var fakeLocations: [CLLocation] = [CLLocation]()
+  var fakeLocations: FakeLocationsArray = [CLLocation]()
   var route: MKRoute!
   
   override func viewDidLoad() {
@@ -83,6 +83,10 @@ extension ViewController: CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     let oldLocation = locations.first as? CLLocation
     let newLocation = locations.last as? CLLocation
+    let actualSteps = aktualniRouteStep(route, newLocation!, 1000)
+    if let arrivingStep = actualSteps.0 {
+      
+    }
     updateMap(oldLocation, newLocation: newLocation)
   }
   
