@@ -11,6 +11,7 @@ import MapKit
 import BrightFutures
 
 typealias FakeLocationsArray = [CLLocation]
+typealias LocalPath = (arrivingStep: MKRouteStep?, leavingStep: MKRouteStep?)
 
 func fakeLocationFromGPXFile(filePath: String) -> FakeLocationsArray? {
 
@@ -118,7 +119,7 @@ func aktualniWaypoit(waypoints: [GPXWaypoint], location: CLLocation, distance: D
   return nil
 }
 
-func aktualniRouteStep(route: MKRoute, currentLocation: CLLocation, distanceFilter: Double) -> (MKRouteStep?, MKRouteStep?) {
+func aktualniRouteStep(route: MKRoute, currentLocation: CLLocation, distanceFilter: Double) -> LocalPath {
   let steps:[MKRouteStep] = route.steps as! [MKRouteStep]
   for i in 0..<steps.count-1 {
     var pocet = steps[i].polyline.pointCount

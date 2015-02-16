@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="height" constant="200" id="Lru-T2-Q9H"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="7g2-IZ-Wm3" kind="embed" id="Jes-GH-GI1"/>
+                                    <segue destination="7g2-IZ-Wm3" kind="embed" identifier="showDetail" id="Jes-GH-GI1"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -62,14 +62,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nVA-J2-VSD">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="9" y="8" width="182" height="177"/>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="nVA-J2-VSD" secondAttribute="trailing" id="Gdf-03-0eR"/>
-                            <constraint firstItem="nVA-J2-VSD" firstAttribute="top" secondItem="t4v-DC-S55" secondAttribute="bottom" id="HHv-Jw-FOt"/>
-                            <constraint firstItem="nVA-J2-VSD" firstAttribute="leading" secondItem="lOx-ND-3w5" secondAttribute="leading" id="IJU-vl-hYg"/>
-                            <constraint firstItem="nVA-J2-VSD" firstAttribute="bottom" secondItem="J4b-WL-opY" secondAttribute="top" id="Wt7-Hl-Sdf"/>
+                            <constraint firstAttribute="trailing" secondItem="nVA-J2-VSD" secondAttribute="trailing" constant="9" id="Gdf-03-0eR"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="top" secondItem="t4v-DC-S55" secondAttribute="bottom" constant="8" id="HHv-Jw-FOt"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="leading" secondItem="lOx-ND-3w5" secondAttribute="leading" constant="9" id="IJU-vl-hYg"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="bottom" secondItem="J4b-WL-opY" secondAttribute="top" constant="-15" id="Wt7-Hl-Sdf"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -79,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LoM-pH-Mcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="966"/>
+            <point key="canvasLocation" x="438" y="1172"/>
         </scene>
     </scenes>
 </document>

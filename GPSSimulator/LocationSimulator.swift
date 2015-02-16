@@ -32,6 +32,11 @@ class LocationSimulator: CLLocationManager {
   private var updatingLocation: Bool?
   var fakeLocations: [CLLocation] = [CLLocation]()
   private var updateInterval: NSTimeInterval = 2.0
+	
+	init(mapView: MKMapView) {
+		self.mapView = mapView
+		super.init()
+	}
   
   init(mapView: MKMapView, filePath: String) {
     self.mapView = mapView
@@ -48,6 +53,7 @@ class LocationSimulator: CLLocationManager {
     let location = fakeLocations.first
     self.previousLocation = location!
     self.currentLocation = location!
+		super.init()
   }
   
   func loadGPXFile(filePath: String) {

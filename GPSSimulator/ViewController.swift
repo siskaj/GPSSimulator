@@ -17,6 +17,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
   var locationManager: LocationSimulator!
   var fakeLocations: FakeLocationsArray = [CLLocation]()
   var route: MKRoute!
+	var detailViewController: DetailViewController!
+	
+	var currentLocation: CLLocation?
   
   override func viewDidLoad() {
     func setupRoute(route: MKRoute) {
@@ -41,7 +44,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
       delay(60, locationManager.startUpdatingLocation)
 
     }
-    
+		
+		locationManager = LocationSimulator(mapView: mapView)
     super.viewDidLoad()
     
     let (route,pole): (Future<MKRoute>,Future<FakeLocationsArray>) = setupScenario()
@@ -71,7 +75,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
     // Dispose of any resources that can be recreated.
   }
 
-
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "showDetail" {
+			detailViewController = segue.destinationViewController as! DetailViewController
+		}
+	}
 }
 
 //MARK: LocationManagerDelegate
@@ -82,12 +90,9 @@ extension ViewController: CLLocationManagerDelegate {
   
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     let oldLocation = locations.first as? CLLocation
-    let newLocation = locations.last as? CLLocation
-    let actualSteps = aktualniRouteStep(route, newLocation!, 1000)
-    if let arrivingStep = actualSteps.0 {
-      
-    }
-    updateMap(oldLocation, newLocation: newLocation)
+    currentLocation = locations.last as? CLLocation
+    updateMap(oldLocation, newLocation: currentLocation)
+		detailViewController.localPath = aktualniRouteStep(route, currentLocation!, 1000)
   }
   
   func updateMap(oldLocation: CLLocation?, newLocation: CLLocation?) {
@@ -96,7 +101,8 @@ extension ViewController: CLLocationManagerDelegate {
         let region = MKCoordinateRegionMakeWithDistance(theNewLocation.coordinate, 100, 100)
         mapView.setRegion(region, animated: true)
         var camera = mapView.camera
-        camera.heading = locationManager.course(oldLocation!, point2: newLocation!)
+				detailViewController.azimut = locationManager.course(oldLocation!, point2: newLocation!)
+				camera.heading = detailViewController.azimut
         mapView.setCamera(camera, animated: true)
       }
     }
