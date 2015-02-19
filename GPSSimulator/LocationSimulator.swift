@@ -31,7 +31,7 @@ class LocationSimulator: CLLocationManager {
   private var index: Int = 0
   private var updatingLocation: Bool?
   var fakeLocations: [CLLocation] = [CLLocation]()
-  private var updateInterval: NSTimeInterval = 2.0
+  private var updateInterval: NSTimeInterval = 0.4
 	
 	init(mapView: MKMapView) {
 		self.mapView = mapView
@@ -104,7 +104,8 @@ class LocationSimulator: CLLocationManager {
   override func stopUpdatingHeading() {
     updatingLocation = false
   }
-  
+	
+	//TODO: tahle metoda je skoro jiste spatne
   func course(point1: CLLocation, point2: CLLocation) -> Double {
     var tcl: Double = 0
     let dlat = point2.coordinate.latitude - point1.coordinate.latitude
@@ -153,5 +154,20 @@ class LocationSimulator: CLLocationManager {
     }
     return tcl
   }
+	
+	func radians2degrees(radians: Double) -> Double {
+		return radians * (180.0/M_PI)
+	}
+	
+	func course3(startLocation: CLLocation, endLocation: CLLocation) -> Double {
+		let northPoint = CLLocation(latitude: startLocation.coordinate.latitude + 0.01, longitude: endLocation.coordinate.longitude)
+		let magA = northPoint.distanceFromLocation(startLocation)
+		let magB = endLocation.distanceFromLocation(startLocation)
+		let startLat = CLLocation(latitude: startLocation.coordinate.latitude, longitude: 0)
+		let endLat = CLLocation(latitude: endLocation.coordinate.latitude, longitude: 0)
+		let aDotB = magA * endLat.distanceFromLocation(startLat)
+		return radians2degrees(acos(aDotB/(magA * magB)))
+	}
+
 
 }

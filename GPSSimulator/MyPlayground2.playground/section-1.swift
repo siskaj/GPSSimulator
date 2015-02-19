@@ -19,6 +19,8 @@ let name = myTrack.name
 let segment = myTrack.tracksegments[0] as! GPXTrackSegment
 
 var trackpoints: [GPXWaypoint] = segment.trackpoints as! [GPXWaypoint]
+var locations: [CLLocation] = trackpoints.map { CLLocation(latitude: Double($0.latitude), longitude: Double($0.longitude))
+}
 
 let rad = 180/M_PI
 
@@ -72,9 +74,30 @@ func course2(point1: GPXWaypoint, point2:GPXWaypoint) -> Double {
   return tcl
 }
 
+func radians2degrees(radians: Double) -> Double {
+	return radians * (180.0/M_PI)
+}
+
+func course3(startLocation: CLLocation, endLocation: CLLocation) -> Double {
+	let northPoint = CLLocation(latitude: startLocation.coordinate.latitude + 0.01, longitude: endLocation.coordinate.longitude)
+	let magA = northPoint.distanceFromLocation(startLocation)
+	let magB = endLocation.distanceFromLocation(startLocation)
+	let startLat = CLLocation(latitude: startLocation.coordinate.latitude, longitude: 0)
+	let endLat = CLLocation(latitude: endLocation.coordinate.latitude, longitude: 0)
+	let aDotB = magA * endLat.distanceFromLocation(startLat)
+	return radians2degrees(acos(aDotB/(magA * magB)))
+}
+
 var azimut: [Double] = [Double]()
 for i in 0...200
  {  azimut.append(course2(trackpoints[1*i], trackpoints[1*(i+1)]))
 //  println("Body 1:\(trackpoints[20*i].longitude), \(trackpoints[20*i].latitude)")
 }
 println("\(azimut)")
+
+var azimut2: [Double] = [Double]()
+for i in 0...200
+{  azimut2.append(course3(locations[1*i], locations[1*(i+1)]))
+	//  println("Body 1:\(trackpoints[20*i].longitude), \(trackpoints[20*i].latitude)")
+}
+println("\(azimut2)")
