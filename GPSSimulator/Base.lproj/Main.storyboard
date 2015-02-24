@@ -64,17 +64,26 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nVA-J2-VSD">
                                 <rect key="frame" x="9" y="8" width="182" height="177"/>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYT-Kp-AWk">
+                                <rect key="frame" x="23" y="25" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.14571782990000001" blue="0.11033984080000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aYT-Kp-AWk" firstAttribute="top" secondItem="t4v-DC-S55" secondAttribute="bottom" constant="25" id="5lk-pV-pZt"/>
                             <constraint firstAttribute="trailing" secondItem="nVA-J2-VSD" secondAttribute="trailing" constant="9" id="Gdf-03-0eR"/>
                             <constraint firstItem="nVA-J2-VSD" firstAttribute="top" secondItem="t4v-DC-S55" secondAttribute="bottom" constant="8" id="HHv-Jw-FOt"/>
                             <constraint firstItem="nVA-J2-VSD" firstAttribute="leading" secondItem="lOx-ND-3w5" secondAttribute="leading" constant="9" id="IJU-vl-hYg"/>
                             <constraint firstItem="nVA-J2-VSD" firstAttribute="bottom" secondItem="J4b-WL-opY" secondAttribute="top" constant="-15" id="Wt7-Hl-Sdf"/>
+                            <constraint firstItem="aYT-Kp-AWk" firstAttribute="leading" secondItem="lOx-ND-3w5" secondAttribute="leadingMargin" constant="7" id="xZg-MF-fMo"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="distanceLabel" destination="aYT-Kp-AWk" id="9PL-6e-pl3"/>
                         <outlet property="imageView" destination="nVA-J2-VSD" id="fYj-vs-6qT"/>
                     </connections>
                 </viewController>

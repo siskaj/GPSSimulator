@@ -7,6 +7,25 @@ XCPSetExecutionShouldContinueIndefinitely(continueIndefinitely: true)
 
 var str = "Hello, playground"
 
+typealias tup1 = (jmeno: String, vis: Bool)
+class Test {
+	
+	var a = (jmeno: "b", vis: false)
+	var A : [tup1] = [("c",false), ("d", false)]
+	
+	func f() {
+		a.vis = true
+		println(a)
+		println(A[1].vis)
+		A[1].vis = true
+		println(A)
+	}
+}
+
+var t = Test()
+t.f()
+
+
 let testArray = [1,2,3,4,5]
 
 let res = testArray.map {println($0)}

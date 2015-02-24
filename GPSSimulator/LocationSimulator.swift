@@ -31,7 +31,7 @@ class LocationSimulator: CLLocationManager {
   private var index: Int = 0
   private var updatingLocation: Bool?
   var fakeLocations: [CLLocation] = [CLLocation]()
-  private var updateInterval: NSTimeInterval = 0.4
+  private var updateInterval: NSTimeInterval = 2.0
 	
 	init(mapView: MKMapView) {
 		self.mapView = mapView
@@ -136,8 +136,8 @@ class LocationSimulator: CLLocationManager {
     let p2 = MKMapPointForCoordinate(point2.coordinate)
     let dx = p2.x - p1.x
     println("dx - \(dx)")
-    let dy = p2.y - p1.y
-    println("dy = \(dy), dx/dy = \(dx/dy), atan  = \(rad * atan(dx/dy))")
+    let dy = p1.y - p2.y
+//    println("dy = \(dy), dx/dy = \(dx/dy), atan  = \(rad * atan(dx/dy))")
     if dx > 0 {
       if dy > 0 { tcl = rad * atan(dx/dy) }
       if dy < 0 { tcl = 180 - rad * atan(-dx/dy) }

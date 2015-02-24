@@ -211,6 +211,7 @@
 		859ECAE31A813F0100734297 /* Afternoon Ride.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Afternoon Ride.gpx"; sourceTree = "<group>"; };
 		85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = ../BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
 		85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDataModel.swift; sourceTree = "<group>"; };
+		C5B1EE851A96641B005F89DD /* ImageFromMapView.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = ImageFromMapView.playground; path = ../ImageFromMapView.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +374,7 @@
 				858D100F1A7F62F000C7390E /* Images.xcassets */,
 				858D10111A7F62F000C7390E /* LaunchScreen.xib */,
 				858D10061A7F62F000C7390E /* Supporting Files */,
+				C5B1EE851A96641B005F89DD /* ImageFromMapView.playground */,
 				859ECAE01A80965900734297 /* MyPlayground1.playground */,
 				85009EB41A87BEA100316093 /* MyPlayground2.playground */,
 			);

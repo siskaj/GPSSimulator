@@ -18,12 +18,15 @@ class ViewController: UIViewController, MKMapViewDelegate {
   var fakeLocations: FakeLocationsArray = [CLLocation]()
   var route: MKRoute!
 	var detailViewController: DetailViewController!
+	let viewControllerDataModel = ViewControllerDataModel()
 	
 	var currentLocation: CLLocation?
+	var oldLocation: CLLocation?
   
   override func viewDidLoad() {
     func setupRoute(route: MKRoute) {
       self.route = route
+			viewControllerDataModel.myRoute = MKRoute2JSRoute(route)
     }
     
     // callback, ktery zavolam, pote co se najdou mista, cesta mezi nimi a vytvori FakeLocationArray
@@ -48,7 +51,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 		locationManager = LocationSimulator(mapView: mapView)
     super.viewDidLoad()
     
-    let (route,pole): (Future<MKRoute>,Future<FakeLocationsArray>) = setupScenario()
+		let (route,pole): (Future<MKRoute>,Future<FakeLocationsArray>) = viewControllerDataModel.setupScenario()
     route.onSuccess(callback:setupRoute)
     pole.onSuccess(callback: setupPole)
     
@@ -89,7 +92,7 @@ extension ViewController: CLLocationManagerDelegate {
   }
   
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    let oldLocation = locations.first as? CLLocation
+    oldLocation = locations.first as? CLLocation
     currentLocation = locations.last as? CLLocation
     updateMap(oldLocation, newLocation: currentLocation)
 		detailViewController.localPath = aktualniRouteStep(route, currentLocation!, 1000)
@@ -101,9 +104,11 @@ extension ViewController: CLLocationManagerDelegate {
         let region = MKCoordinateRegionMakeWithDistance(theNewLocation.coordinate, 100, 100)
         mapView.setRegion(region, animated: true)
         var camera = mapView.camera
-				detailViewController.azimut = locationManager.course(oldLocation!, point2: newLocation!)
-				camera.heading = detailViewController.azimut
+				camera.heading = locationManager.course2(oldLocation!, point2: newLocation!)
+//				detailViewController.azimut = locationManager.course3(oldLocation!, endLocation: newLocation!)
+//				camera.heading = detailViewController.azimut
         mapView.setCamera(camera, animated: true)
+				detailViewController.createSnapshotWithPath(detailViewController.imageView!, route: route!, currentLocation: currentLocation!, previousLocation: oldLocation!)
       }
     }
   }
