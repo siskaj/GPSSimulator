@@ -153,7 +153,7 @@ class DetailViewController: UIViewController {
 					poleBodu.append(snapshot.pointForCoordinate(MKCoordinateForMapPoint(leavingStep.polyline.points()[j])))
         }
 				
-				let currentPosition = snapshot.pointForCoordinate((parentViewController as! ViewController).currentLocation!.coordinate)
+				let currentPosition = snapshot.pointForCoordinate((self.parentViewController as! ViewController).currentLocation!.coordinate)
         let imageWithPath = self.drawPath(poleBodu, intoImage: snapshot.image)
         self.imageView.image = self.drawCurrentPosition(currentPosition, intoImage: imageWithPath)
 				println("Counter: \(--self.counter)")
@@ -197,7 +197,7 @@ class DetailViewController: UIViewController {
 				for i in 0..<route.polyline.pointCount {
 					poleBodu.append(snapshot.pointForCoordinate(MKCoordinateForMapPoint(route.polyline.points()[i])))
 					}
-				let currentPosition = snapshot.pointForCoordinate((parentViewController as! ViewController).currentLocation!.coordinate)
+				let currentPosition = snapshot.pointForCoordinate((self.parentViewController as! ViewController).currentLocation!.coordinate)
 				let imageWithPath = self.drawPath(poleBodu, intoImage: snapshot.image)
 				self.imageView.image = self.drawCurrentPosition(currentPosition, intoImage: imageWithPath)
 				self.creatingSnapshot = false

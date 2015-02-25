@@ -26,25 +26,25 @@ class ViewController: UIViewController, MKMapViewDelegate {
   override func viewDidLoad() {
     func setupRoute(route: MKRoute) {
       self.route = route
-			viewControllerDataModel.myRoute = MKRoute2JSRoute(route)
+			self.viewControllerDataModel.myRoute = MKRoute2JSRoute(route)
     }
     
     // callback, ktery zavolam, pote co se najdou mista, cesta mezi nimi a vytvori FakeLocationArray
     func setupPole(fakeLocations: FakeLocationsArray) {
-      locationManager = LocationSimulator(mapView: mapView, fakeLocations: fakeLocations)
-      mapView.showsUserLocation = true
+      self.locationManager = LocationSimulator(mapView: self.mapView, fakeLocations: fakeLocations)
+      self.mapView.showsUserLocation = true
       
-      mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
-      mapView.delegate = self
-      var region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
-      mapView.setRegion(region, animated: true)
+      self.mapView.centerCoordinate = self.locationManager.fakeLocations.first!.coordinate
+      self.mapView.delegate = self
+      var region = MKCoordinateRegionMakeWithDistance(self.mapView.centerCoordinate, 1000, 1000)
+      self.mapView.setRegion(region, animated: true)
       
-      locationManager.delegate = self
-      locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+      self.locationManager.delegate = self
+      self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
       
-      locationManager.startUpdatingLocation()
+      self.locationManager.startUpdatingLocation()
       
-      delay(60, locationManager.startUpdatingLocation)
+      delay(60, self.locationManager.startUpdatingLocation)
 
     }
 		
