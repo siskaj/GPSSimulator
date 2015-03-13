@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EF0B0AE9-D98F-48BD-8839-63F6F9EA1A3A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GPSSimulator</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>93608FFF008CD82ADDFA850BB9C1630FA754586F</key>
+		<string>https://github.com/Thomvis/BrightFutures.git</string>
+		<key>AC8E6CBC575F1726D102FEFA0732C404D7B05333</key>
+		<string>https://github.com/siskaj/GPSSimulator.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GPSSimulator.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>93608FFF008CD82ADDFA850BB9C1630FA754586F</key>
+		<string>../../../BrightFutures</string>
+		<key>AC8E6CBC575F1726D102FEFA0732C404D7B05333</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/siskaj/GPSSimulator.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AC8E6CBC575F1726D102FEFA0732C404D7B05333</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>93608FFF008CD82ADDFA850BB9C1630FA754586F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BrightFutures</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AC8E6CBC575F1726D102FEFA0732C404D7B05333</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GPSSimulator</string>
+		</dict>
+	</array>
+</dict>
+</plist>
