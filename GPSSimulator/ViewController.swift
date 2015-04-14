@@ -17,15 +17,23 @@ class ViewController: UIViewController, MKMapViewDelegate {
   var locationManager: LocationSimulator!
   var fakeLocations: FakeLocationsArray = [CLLocation]()
   var route: MKRoute!
+  var detailViewController: DetailViewController!
+  
+  var aktualniRouteStep: ((CLLocation) -> (MKRouteStep?, MKRouteStep?))!
   
   override func viewDidLoad() {
     func setupRoute(route: MKRoute) {
       self.route = route
+      aktualniRouteStep = aktualniRouteStepGenerator(route, 30)
+      detailViewController.route = route
+      detailViewController.configureView()
     }
     
     // callback, ktery zavolam, pote co se najdou mista, cesta mezi nimi a vytvori FakeLocationArray
     func setupPole(fakeLocations: FakeLocationsArray) {
       locationManager = LocationSimulator(mapView: mapView, fakeLocations: fakeLocations)
+      checkLocationAuthorizationStatus()
+
       mapView.showsUserLocation = true
       
       mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
@@ -36,9 +44,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
       locationManager.delegate = self
       locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
       
-      locationManager.startUpdatingLocation()
+      //FIXME: patri to sem? Mam pocit, ze bych to volal dvakrat
+//      locationManager.startUpdatingLocation()
       
-      delay(60, locationManager.startUpdatingLocation)
+      delay(10, locationManager.startUpdatingLocation)
 
     }
     
@@ -62,7 +71,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    checkLocationAuthorizationStatus()
+//    checkLocationAuthorizationStatus()
   }
 
 
@@ -71,6 +80,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
     // Dispose of any resources that can be recreated.
   }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "container" {
+      println("Volam segue pro container")
+      detailViewController = segue.destinationViewController as! DetailViewController
+    }
+  }
 
 }
 
@@ -83,7 +98,7 @@ extension ViewController: CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     let oldLocation = locations.first as? CLLocation
     let newLocation = locations.last as? CLLocation
-    let actualSteps = aktualniRouteStep(route, newLocation!, 1000)
+    let actualSteps = aktualniRouteStep( newLocation!)
     if let arrivingStep = actualSteps.0 {
       
     }

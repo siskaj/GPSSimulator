@@ -14,27 +14,30 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   var arrivingStep: MKRouteStep!
   var leavingStep: MKRouteStep!
+  var route: MKRoute?
   
-  //    init(arrivingStep: MKRouteStep, leavingStep: MKRouteStep?) {
-  //        self.arrivingStep = arrivingStep
-  //        self.leavingStep = leavingStep
-  //        super.init()
-  //    }
-  
-  //    required init(coder aDecoder: NSCoder) {
-  //        fatalError("init(coder:) has not been implemented")
-  //    }
+//    init(arrivingStep: MKRouteStep, leavingStep: MKRouteStep?) {
+//        self.arrivingStep = arrivingStep
+//        self.leavingStep = leavingStep
+//        super.init()
+//    }
+//
+//    required init(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
   
   
   func configureView() {
     // Update the user interface for the detail item.
-    createSnapshotWithPath()
+    if let route = route {
+      createSnapshotForRouteStep(route, prichod: nil, odchod: nil, currentPosition: nil)
+    }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    self.configureView()
+//    self.configureView()
   }
   
   override func didReceiveMemoryWarning() {
@@ -89,6 +92,42 @@ class DetailViewController: UIViewController {
         
       }
     })
+  }
+  
+  // Pokud step == nil, vytvori Snapshot pro celou route.
+  // Pokud step != nil vytvori Snapshot pro step v takovem meritku, aby byla videte currentLocation a konec pro step (end of step)
+  private func createSnapshotForRouteStep(route: MKRoute, prichod: MKRouteStep?, odchod: MKRouteStep?, currentPosition: CLLocation?) {
+    let options = MKMapSnapshotOptions()
+    options.scale = UIScreen.mainScreen().scale
+    options.size = view.frame.size
+    if (prichod == nil && odchod == nil)  {  // zobrazi se cela route; tahle situace muze nastat na zacatku, kdyz jeste jsem mimo route anebo pote co jsem prosel cilem
+      let pocet = route.polyline.pointCount
+      var poleBodu = [MKMapPoint]()
+      for i in 0..<pocet {
+        poleBodu.append(route.polyline.points()[i])
+      }
+      options.region = CoordinateRegionBoundingMapPoints(poleBodu)
+      let snapshotter = MKMapSnapshotter(options: options)
+      snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot!, error: NSError!) -> Void in
+        //TODO:
+      })
+
+    } else if (prichod != nil && odchod == nil) { // blizim se k cili; prakticky stejny, jako posledni pripad; sjednotit
+      
+    } else if (prichod == nil && odchod != nil) { // blizim se na start; zobrazi se vychozi bod cesty,
+      // curLocation a vychozi usek trajektorie; (Vychozi bod cesty a curLocation by mely urcit meritko, vychozi usek trajektorie bude cast cele trajektorie, ktera se vejde do zobrazeneho regionu
+      
+    } else if (prichod != nil && odchod != nil) { // zobrazi se bodObratu a curLocation a cast route v
+      // odpovidajicim meritku
+      let pocetBoduPrichod = prichod!.polyline.pointCount
+      let bodObratu = prichod!.polyline.points()[pocetBoduPrichod - 1]
+      let bodObratuCoordinate = MKCoordinateForMapPoint(bodObratu)
+      let bodObratuLocation = CLLocation(latitude: bodObratuCoordinate.latitude, longitude: bodObratuCoordinate.longitude)
+      let distance = bodObratuLocation.distanceFromLocation(currentPosition)
+      options.region = MKCoordinateRegionMakeWithDistance(bodObratuCoordinate, 2.0 * distance, 2.0 * distance)
+      let snapshotter = MKMapSnapshotter(options: options)
+      
+    }
   }
 }
 

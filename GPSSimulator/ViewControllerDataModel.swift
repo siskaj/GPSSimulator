@@ -118,18 +118,56 @@ func aktualniWaypoit(waypoints: [GPXWaypoint], location: CLLocation, distance: D
   return nil
 }
 
-func aktualniRouteStep(route: MKRoute, currentLocation: CLLocation, distanceFilter: Double) -> (MKRouteStep?, MKRouteStep?) {
-  let steps:[MKRouteStep] = route.steps as! [MKRouteStep]
-  for i in 0..<steps.count-1 {
-    var pocet = steps[i].polyline.pointCount
-    var coord = MKCoordinateForMapPoint(steps[i].polyline.points()[pocet-1])
+//TODO: potrebuji tuhle funkci?
+//func aktualniRouteStep(route: MKRoute, currentLocation: CLLocation, distanceFilter: Double) -> (MKRouteStep?, MKRouteStep?) {
+//  let steps:[MKRouteStep] = route.steps as! [MKRouteStep]
+//  for i in 0..<steps.count-1 {
+//    var pocet = steps[i].polyline.pointCount
+//    var coord = MKCoordinateForMapPoint(steps[i].polyline.points()[pocet-1])
+//    var location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
+//    if location.distanceFromLocation(currentLocation) < distanceFilter {
+//      return (steps[i], steps[i+1])
+//    }
+//  }
+//  return (nil, nil)
+//}
+
+func aktualniRouteStepGenerator(route: MKRoute, filter: Double) -> ((currentLocation: CLLocation) -> (MKRouteStep?, MKRouteStep?)) {
+  var remainingSteps: [MKRouteStep] = route.steps as! [MKRouteStep]
+  var lastDistance: Double
+  var arrivingStep: MKRouteStep? = nil
+  var leavingStep: MKRouteStep? = nil
+  
+  func f(currentLocation : CLLocation) -> (MKRouteStep?, MKRouteStep?) {
+    var pocet = remainingSteps[0].polyline.pointCount
+    var coord = MKCoordinateForMapPoint(remainingSteps[0].polyline.points()[pocet-1])
     var location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
-    if location.distanceFromLocation(currentLocation) < distanceFilter {
-      return (steps[i], steps[i+1])
+    var dist = location.distanceFromLocation(currentLocation)
+    if arrivingStep == nil {
+      coord = MKCoordinateForMapPoint(remainingSteps[0].polyline.points()[0])
+      location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
+      dist = location.distanceFromLocation(currentLocation)
+      if dist < filter {
+        leavingStep = remainingSteps[0]
+        return (nil, leavingStep)
+      } else {
+        return (nil, nil)
+      }
+    }
+    if dist < filter {
+      remainingSteps.removeAtIndex(0)
+      arrivingStep = leavingStep
+    }
+    switch remainingSteps.count {
+    case 0:             // dosel jsem do cile
+      return (nil, nil)
+    case 1:
+      return (arrivingStep, nil)
+    default:
+      leavingStep = remainingSteps[1]
+      return (arrivingStep , leavingStep)
     }
   }
-  return (nil, nil)
+  return f
 }
-
-
 

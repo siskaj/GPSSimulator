@@ -70,7 +70,7 @@ class LocationSimulator: CLLocationManager {
       previousLocation = currentLocation
     }
     
-      mapView.userLocation.setCoordinate(currentLocation.coordinate)
+//    (mapView.userLocation as MKAnnotation).setCoordinate(currentLocation.coordinate)
     if updatingLocation! {
       index++
       if index == fakeLocations.count {

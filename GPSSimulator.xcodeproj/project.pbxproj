@@ -69,6 +69,7 @@
 		85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85969DCE1A7FF47200A230AD /* LocationSimulator.swift */; };
 		859ECAE41A813F0100734297 /* 1_Ammergauer.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */; };
 		859ECAE51A813F0100734297 /* Afternoon Ride.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE31A813F0100734297 /* Afternoon Ride.gpx */; };
+		85AEB2DE1AD40EA20031E359 /* MapKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */; };
 		85FBD4D61A82B3A700F7A5A0 /* ViewControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +210,7 @@
 		859ECAE01A80965900734297 /* MyPlayground1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground1.playground; sourceTree = "<group>"; };
 		859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 1_Ammergauer.gpx; sourceTree = "<group>"; };
 		859ECAE31A813F0100734297 /* Afternoon Ride.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Afternoon Ride.gpx"; sourceTree = "<group>"; };
+		85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitHelpers.swift; sourceTree = "<group>"; };
 		85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = ../BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
 		85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -369,6 +371,7 @@
 				858D100A1A7F62F000C7390E /* ViewController.swift */,
 				85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */,
 				858D100C1A7F62F000C7390E /* Main.storyboard */,
+				85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */,
 				85073DAB1A7FC25F00CFFF7E /* GPSSimulator-Bridging-Header.h */,
 				858D100F1A7F62F000C7390E /* Images.xcassets */,
 				858D10111A7F62F000C7390E /* LaunchScreen.xib */,
@@ -684,6 +687,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */,
+				85AEB2DE1AD40EA20031E359 /* MapKitHelpers.swift in Sources */,
 				858D100B1A7F62F000C7390E /* ViewController.swift in Sources */,
 				852D3EC41A88819600847F7F /* DetailViewController.swift in Sources */,
 				85FBD4D61A82B3A700F7A5A0 /* ViewControllerDataModel.swift in Sources */,
