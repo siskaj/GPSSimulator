@@ -8,6 +8,8 @@
 
 import UIKit
 
+let fromGPXFile: Bool = true
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

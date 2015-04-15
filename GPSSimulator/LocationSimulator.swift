@@ -48,6 +48,7 @@ class LocationSimulator: CLLocationManager {
     let location = fakeLocations.first
     self.previousLocation = location!
     self.currentLocation = location!
+    super.init()
   }
   
   func loadGPXFile(filePath: String) {

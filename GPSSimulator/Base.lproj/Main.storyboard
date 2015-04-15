@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyo-qV-lNb">
-                                <rect key="frame" x="361" y="335" width="200" height="200"/>
+                                <rect key="frame" x="361" y="330" width="200" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="3NA-hU-J3F"/>
-                                    <constraint firstAttribute="height" constant="200" id="Lru-T2-Q9H"/>
+                                    <constraint firstAttribute="height" constant="210" id="Lru-T2-Q9H"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="7g2-IZ-Wm3" kind="embed" identifier="container" id="Jes-GH-GI1"/>
@@ -36,7 +36,7 @@
                             <constraint firstAttribute="trailing" secondItem="bo5-dA-SA7" secondAttribute="trailing" id="3DF-FB-e7r"/>
                             <constraint firstItem="bo5-dA-SA7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="HEk-Nz-EKo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nyo-qV-lNb" secondAttribute="trailing" constant="23" id="VVv-yv-z0M"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="nyo-qV-lNb" secondAttribute="bottom" constant="65" id="Wdy-ki-6ui"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="nyo-qV-lNb" secondAttribute="bottom" constant="60" id="Wdy-ki-6ui"/>
                             <constraint firstItem="bo5-dA-SA7" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="rKa-UV-JFZ"/>
                             <constraint firstItem="bo5-dA-SA7" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="xop-AV-CwW"/>
                         </constraints>
@@ -58,18 +58,19 @@
                         <viewControllerLayoutGuide type="bottom" id="J4b-WL-opY"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="lOx-ND-3w5">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="210"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nVA-J2-VSD">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="5" y="5" width="190" height="195"/>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="nVA-J2-VSD" secondAttribute="trailing" id="Gdf-03-0eR"/>
-                            <constraint firstItem="nVA-J2-VSD" firstAttribute="top" secondItem="t4v-DC-S55" secondAttribute="bottom" id="HHv-Jw-FOt"/>
-                            <constraint firstItem="nVA-J2-VSD" firstAttribute="leading" secondItem="lOx-ND-3w5" secondAttribute="leading" id="IJU-vl-hYg"/>
-                            <constraint firstItem="nVA-J2-VSD" firstAttribute="bottom" secondItem="J4b-WL-opY" secondAttribute="top" id="Wt7-Hl-Sdf"/>
+                            <constraint firstAttribute="trailing" secondItem="nVA-J2-VSD" secondAttribute="trailing" constant="5" id="Gdf-03-0eR"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="top" secondItem="t4v-DC-S55" secondAttribute="bottom" constant="5" id="HHv-Jw-FOt"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="leading" secondItem="lOx-ND-3w5" secondAttribute="leading" constant="5" id="IJU-vl-hYg"/>
+                            <constraint firstItem="nVA-J2-VSD" firstAttribute="bottom" secondItem="J4b-WL-opY" secondAttribute="top" constant="-10" id="Wt7-Hl-Sdf"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

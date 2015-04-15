@@ -9,12 +9,37 @@
 import UIKit
 import MapKit
 
+func drawPath(points: [CGPoint], intoImage image: UIImage) -> UIImage {
+  UIGraphicsBeginImageContext(image.size)
+  image.drawAtPoint(CGPointZero)
+  
+  //    let ctx = UIGraphicsGetCurrentContext()
+  UIColor.redColor().setStroke()
+  var path = UIBezierPath()
+  path.moveToPoint(points[0])
+  for i in 1..<points.count {
+    path.addLineToPoint(points[i])
+  }
+  path.lineWidth = 3
+  //    CGContextStrokePath(ctx)
+  path.stroke()
+  let retImage = UIGraphicsGetImageFromCurrentImageContext()
+  UIGraphicsEndImageContext()
+  return retImage
+}
+
+enum Configuration {
+  case GPX(String)
+  case Directions(MKRoute)
+}
+
 class DetailViewController: UIViewController {
     
   @IBOutlet weak var imageView: UIImageView!
   var arrivingStep: MKRouteStep!
   var leavingStep: MKRouteStep!
   var route: MKRoute?
+  var gpxDataModel: GPXDataModel!
   
 //    init(arrivingStep: MKRouteStep, leavingStep: MKRouteStep?) {
 //        self.arrivingStep = arrivingStep
@@ -27,10 +52,16 @@ class DetailViewController: UIViewController {
 //    }
   
   
-  func configureView() {
+  func configureView(configuration: Configuration) {
     // Update the user interface for the detail item.
-    if let route = route {
+    switch configuration {
+    case .GPX(let path):
+      gpxDataModel = GPXDataModel(filePath: path)
+      drawCompleteRoute(gpxDataModel.trackPoints)
+    case .Directions(let route):
       createSnapshotForRouteStep(route, prichod: nil, odchod: nil, currentPosition: nil)
+    default:
+      break
     }
   }
   
@@ -43,25 +74,6 @@ class DetailViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
-  }
-  
-  private func drawPath(points: [CGPoint], intoImage image: UIImage) -> UIImage {
-    UIGraphicsBeginImageContext(image.size)
-    image.drawAtPoint(CGPointZero)
-    
-//    let ctx = UIGraphicsGetCurrentContext()
-    UIColor.redColor().setStroke()
-    var path = UIBezierPath()
-    path.moveToPoint(points[0])
-    for i in 1..<points.count {
-      path.addLineToPoint(points[i])
-    }
-    path.lineWidth = 3
-    //    CGContextStrokePath(ctx)
-    path.stroke()
-    let retImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return retImage
   }
   
   
@@ -88,7 +100,7 @@ class DetailViewController: UIViewController {
         }
         
         
-        self.imageView.image = self.drawPath(poleBodu, intoImage: snapshot.image)
+        self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image)
         
       }
     })
@@ -129,5 +141,25 @@ class DetailViewController: UIViewController {
       
     }
   }
+  
+  func drawCompleteRoute(trackPoints: [GPXTrackPoint]) {
+    let options = MKMapSnapshotOptions()
+    options.scale = UIScreen.mainScreen().scale
+    options.size = imageView.frame.size
+    
+//    let curPositionAsMapPoint = MKMapPointForCoordinate(currentPosition.coordinate)
+    var allPoints = trackPoints.map(MKMapPointForWayPoint)
+//    allPoints.append(curPositionAsMapPoint)
+    options.mapRect = MapRectBoundingMapPoints(allPoints)
+    
+    let snapshotter = MKMapSnapshotter(options: options)
+    snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot!, error: NSError!) -> Void in
+      if error == nil {
+        var poleBodu = trackPoints.map { snapshot.pointForCoordinate(CLLocationCoordinate2DMake(Double($0.latitude), Double($0.longitude))) }
+        self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image)
+      }
+    })
+  }
+
 }
 

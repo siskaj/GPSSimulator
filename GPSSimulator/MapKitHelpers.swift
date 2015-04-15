@@ -26,3 +26,13 @@ func CoordinateRegionBoundingMapPoints(points: [MKMapPoint]) -> MKCoordinateRegi
   return region
 }
 
+
+func MapRectBoundingMapPoints(points: [MKMapPoint]) -> MKMapRect {
+  let rect = points.reduce(MKMapRectNull) { (mapRect: MKMapRect, point: MKMapPoint) in
+    let pointRect = MKMapRect(origin: point, size: MKMapSize(width: 0, height: 0))
+    return MKMapRectUnion(mapRect, pointRect)
+  }
+  
+  // Pomoci negativne nastaveneho Insetu zvetsim MapRect tak, aby vytvorena path se nedotykala okraju MapRect
+  return MKMapRectInset(rect, -rect.size.width/10, -rect.size.height/10)
+}

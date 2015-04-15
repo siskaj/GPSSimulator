@@ -60,6 +60,7 @@
 		85073DA91A7FC10800CFFF7E /* GPXXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 85073D7A1A7FC10800CFFF7E /* GPXXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85073DAA1A7FC10800CFFF7E /* GPXXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 85073D7B1A7FC10800CFFF7E /* GPXXML.m */; };
 		852D3EC41A88819600847F7F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852D3EC31A88819600847F7F /* DetailViewController.swift */; };
+		8539547E1ADD9406004BD5EB /* GPXDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539547D1ADD9406004BD5EB /* GPXDataModel.swift */; };
 		858D10091A7F62F000C7390E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D10081A7F62F000C7390E /* AppDelegate.swift */; };
 		858D100B1A7F62F000C7390E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D100A1A7F62F000C7390E /* ViewController.swift */; };
 		858D100E1A7F62F000C7390E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 858D100C1A7F62F000C7390E /* Main.storyboard */; };
@@ -68,7 +69,7 @@
 		858D101F1A7F62F100C7390E /* GPSSimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D101E1A7F62F100C7390E /* GPSSimulatorTests.swift */; };
 		85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85969DCE1A7FF47200A230AD /* LocationSimulator.swift */; };
 		859ECAE41A813F0100734297 /* 1_Ammergauer.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */; };
-		859ECAE51A813F0100734297 /* Afternoon Ride.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE31A813F0100734297 /* Afternoon Ride.gpx */; };
+		859ECAE51A813F0100734297 /* AfternoonRide.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE31A813F0100734297 /* AfternoonRide.gpx */; };
 		85AEB2DE1AD40EA20031E359 /* MapKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */; };
 		85FBD4D61A82B3A700F7A5A0 /* ViewControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */; };
 /* End PBXBuildFile section */
@@ -196,6 +197,7 @@
 		85073D7B1A7FC10800CFFF7E /* GPXXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXXML.m; sourceTree = "<group>"; };
 		85073DAB1A7FC25F00CFFF7E /* GPSSimulator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GPSSimulator-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		852D3EC31A88819600847F7F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8539547D1ADD9406004BD5EB /* GPXDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXDataModel.swift; sourceTree = "<group>"; };
 		858D10031A7F62F000C7390E /* GPSSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		858D10071A7F62F000C7390E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		858D10081A7F62F000C7390E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,7 +211,7 @@
 		85969DCE1A7FF47200A230AD /* LocationSimulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSimulator.swift; sourceTree = "<group>"; };
 		859ECAE01A80965900734297 /* MyPlayground1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground1.playground; sourceTree = "<group>"; };
 		859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 1_Ammergauer.gpx; sourceTree = "<group>"; };
-		859ECAE31A813F0100734297 /* Afternoon Ride.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Afternoon Ride.gpx"; sourceTree = "<group>"; };
+		859ECAE31A813F0100734297 /* AfternoonRide.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AfternoonRide.gpx; sourceTree = "<group>"; };
 		85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitHelpers.swift; sourceTree = "<group>"; };
 		85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = ../BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
 		85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDataModel.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				858D10081A7F62F000C7390E /* AppDelegate.swift */,
+				8539547D1ADD9406004BD5EB /* GPXDataModel.swift */,
 				85969DCE1A7FF47200A230AD /* LocationSimulator.swift */,
 				852D3EC31A88819600847F7F /* DetailViewController.swift */,
 				858D100A1A7F62F000C7390E /* ViewController.swift */,
@@ -411,7 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */,
-				859ECAE31A813F0100734297 /* Afternoon Ride.gpx */,
+				859ECAE31A813F0100734297 /* AfternoonRide.gpx */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -628,7 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				858D100E1A7F62F000C7390E /* Main.storyboard in Resources */,
-				859ECAE51A813F0100734297 /* Afternoon Ride.gpx in Resources */,
+				859ECAE51A813F0100734297 /* AfternoonRide.gpx in Resources */,
 				858D10131A7F62F000C7390E /* LaunchScreen.xib in Resources */,
 				858D10101A7F62F000C7390E /* Images.xcassets in Resources */,
 				859ECAE41A813F0100734297 /* 1_Ammergauer.gpx in Resources */,
@@ -689,6 +692,7 @@
 				85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */,
 				85AEB2DE1AD40EA20031E359 /* MapKitHelpers.swift in Sources */,
 				858D100B1A7F62F000C7390E /* ViewController.swift in Sources */,
+				8539547E1ADD9406004BD5EB /* GPXDataModel.swift in Sources */,
 				852D3EC41A88819600847F7F /* DetailViewController.swift in Sources */,
 				85FBD4D61A82B3A700F7A5A0 /* ViewControllerDataModel.swift in Sources */,
 				858D10091A7F62F000C7390E /* AppDelegate.swift in Sources */,

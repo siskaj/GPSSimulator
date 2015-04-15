@@ -11,7 +11,7 @@ import MapKit
 import BrightFutures
 
 class ViewController: UIViewController, MKMapViewDelegate {
-
+  
   @IBOutlet weak var container: UIView!
   @IBOutlet weak var mapView: MKMapView!
   var locationManager: LocationSimulator!
@@ -26,7 +26,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
       self.route = route
       aktualniRouteStep = aktualniRouteStepGenerator(route, 30)
       detailViewController.route = route
-      detailViewController.configureView()
+      var configuration = Configuration.Directions(route)
+      detailViewController.configureView(configuration)
     }
     
     // callback, ktery zavolam, pote co se najdou mista, cesta mezi nimi a vytvori FakeLocationArray
@@ -53,11 +54,31 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     super.viewDidLoad()
     
-    let (route,pole): (Future<MKRoute>,Future<FakeLocationsArray>) = setupScenario()
-    route.onSuccess(callback:setupRoute)
-    pole.onSuccess(callback: setupPole)
-    
-//    locationManager = LocationSimulator(mapView: mapView, filePath: NSBundle.mainBundle().pathForResource("Afternoon Ride", ofType: "gpx")!)
+    if fromGPXFile {
+      let path = NSBundle.mainBundle().pathForResource("AfternoonRide", ofType: "gpx")
+      locationManager = LocationSimulator(mapView: mapView, filePath: path!)
+      checkLocationAuthorizationStatus()
+      
+      mapView.showsUserLocation = true
+      
+      mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
+      mapView.delegate = self
+      var region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
+      mapView.setRegion(region, animated: true)
+      
+      detailViewController.configureView(Configuration.GPX(path!))
+      
+      locationManager.delegate = self
+      locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+      
+      
+      delay(10, locationManager.startUpdatingLocation)
+
+    } else {
+      let (route,pole): (Future<MKRoute>,Future<FakeLocationsArray>) = setupScenario()
+      route.onSuccess(callback:setupRoute)
+      pole.onSuccess(callback: setupPole)
+    }
     
   }
   
@@ -98,10 +119,10 @@ extension ViewController: CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     let oldLocation = locations.first as? CLLocation
     let newLocation = locations.last as? CLLocation
-    let actualSteps = aktualniRouteStep( newLocation!)
-    if let arrivingStep = actualSteps.0 {
-      
-    }
+//    let actualSteps = aktualniRouteStep( newLocation!)
+//    if let arrivingStep = actualSteps.0 {
+//      
+//    }
     updateMap(oldLocation, newLocation: newLocation)
   }
   
