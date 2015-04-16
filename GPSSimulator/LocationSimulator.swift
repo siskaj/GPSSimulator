@@ -31,7 +31,7 @@ class LocationSimulator: CLLocationManager {
   private var index: Int = 0
   private var updatingLocation: Bool?
   var fakeLocations: [CLLocation] = [CLLocation]()
-  private var updateInterval: NSTimeInterval = 2.0
+  private var updateInterval: NSTimeInterval = 0.5
   
   init(mapView: MKMapView, filePath: String) {
     self.mapView = mapView

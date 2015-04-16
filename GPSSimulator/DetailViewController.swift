@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-func drawPath(points: [CGPoint], intoImage image: UIImage) -> UIImage {
+func drawPath(points: [CGPoint], intoImage image: UIImage, curLocation location: CGPoint?) -> UIImage {
   UIGraphicsBeginImageContext(image.size)
   image.drawAtPoint(CGPointZero)
   
@@ -23,6 +23,12 @@ func drawPath(points: [CGPoint], intoImage image: UIImage) -> UIImage {
   path.lineWidth = 3
   //    CGContextStrokePath(ctx)
   path.stroke()
+  
+  if let location = location {
+    let pin = MKPinAnnotationView(annotation: nil, reuseIdentifier: nil)
+    pin.image.drawAtPoint(location)
+  }
+  
   let retImage = UIGraphicsGetImageFromCurrentImageContext()
   UIGraphicsEndImageContext()
   return retImage
@@ -31,6 +37,11 @@ func drawPath(points: [CGPoint], intoImage image: UIImage) -> UIImage {
 enum Configuration {
   case GPX(String)
   case Directions(MKRoute)
+}
+
+enum Mode {
+  case Scale(Double)
+  case FullTrack
 }
 
 class DetailViewController: UIViewController {
@@ -57,7 +68,7 @@ class DetailViewController: UIViewController {
     switch configuration {
     case .GPX(let path):
       gpxDataModel = GPXDataModel(filePath: path)
-      drawCompleteRoute(gpxDataModel.trackPoints)
+      drawCompleteRoute(gpxDataModel.trackPoints,currentPosition: nil,camera: nil, mod: .FullTrack)
     case .Directions(let route):
       createSnapshotForRouteStep(route, prichod: nil, odchod: nil, currentPosition: nil)
     default:
@@ -99,8 +110,8 @@ class DetailViewController: UIViewController {
           poleBodu.append(snapshot.pointForCoordinate(MKCoordinateForMapPoint(self.leavingStep.polyline.points()[j])))
         }
         
-        
-        self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image)
+        //FIXME: tady curLocation ma asi neco rozumneho byt
+        self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: CGPointZero)
         
       }
     })
@@ -142,21 +153,35 @@ class DetailViewController: UIViewController {
     }
   }
   
-  func drawCompleteRoute(trackPoints: [GPXTrackPoint]) {
+  func drawCompleteRoute(trackPoints: [GPXTrackPoint], currentPosition: CLLocation?, camera: MKMapCamera?, mod: Mode) {
     let options = MKMapSnapshotOptions()
     options.scale = UIScreen.mainScreen().scale
     options.size = imageView.frame.size
     
-//    let curPositionAsMapPoint = MKMapPointForCoordinate(currentPosition.coordinate)
-    var allPoints = trackPoints.map(MKMapPointForWayPoint)
-//    allPoints.append(curPositionAsMapPoint)
-    options.mapRect = MapRectBoundingMapPoints(allPoints)
+    switch mod {
+    case .FullTrack:
+      //    let curPositionAsMapPoint = MKMapPointForCoordinate(currentPosition.coordinate)
+      var allPoints = trackPoints.map(MKMapPointForWayPoint)
+      //    allPoints.append(curPositionAsMapPoint)
+      options.mapRect = MapRectBoundingMapPoints(allPoints)
+    case .Scale(let scale):
+//      options.region = MKCoordinateRegionMakeWithDistance(currentPosition!.coordinate, scale, scale)
+      if let camera_ = camera {
+        options.camera = camera_
+      }
+    }
     
     let snapshotter = MKMapSnapshotter(options: options)
     snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot!, error: NSError!) -> Void in
       if error == nil {
         var poleBodu = trackPoints.map { snapshot.pointForCoordinate(CLLocationCoordinate2DMake(Double($0.latitude), Double($0.longitude))) }
-        self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image)
+        // Nutne zkontrolovat; nektere body to konvertuje na NaN
+        poleBodu = poleBodu.filter { !($0.x.isNaN || $0.y.isNaN) }
+        if let currentPosition = currentPosition {
+          self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: snapshot.pointForCoordinate(currentPosition.coordinate))
+        } else {
+          self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: nil)
+        }
       }
     })
   }

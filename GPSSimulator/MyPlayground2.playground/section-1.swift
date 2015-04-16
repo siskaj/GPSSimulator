@@ -74,7 +74,7 @@ func course2(point1: GPXWaypoint, point2:GPXWaypoint) -> Double {
 
 var azimut: [Double] = [Double]()
 for i in 0...200
- {  azimut.append(course2(trackpoints[1*i], trackpoints[1*(i+1)]))
+ {  azimut.append(course(trackpoints[1*i], trackpoints[1*(i+1)]))
 //  println("Body 1:\(trackpoints[20*i].longitude), \(trackpoints[20*i].latitude)")
 }
 println("\(azimut)")

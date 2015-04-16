@@ -48,7 +48,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
       //FIXME: patri to sem? Mam pocit, ze bych to volal dvakrat
 //      locationManager.startUpdatingLocation()
       
-      delay(10, locationManager.startUpdatingLocation)
+      delay(1, locationManager.startUpdatingLocation)
 
     }
     
@@ -119,22 +119,38 @@ extension ViewController: CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     let oldLocation = locations.first as? CLLocation
     let newLocation = locations.last as? CLLocation
+//    println("\(newLocation.course),  \(newLocation.speed)")
 //    let actualSteps = aktualniRouteStep( newLocation!)
 //    if let arrivingStep = actualSteps.0 {
 //      
 //    }
     updateMap(oldLocation, newLocation: newLocation)
+    updateMapDetail(oldLocation, newLocation: newLocation, filter: 50)
   }
   
   func updateMap(oldLocation: CLLocation?, newLocation: CLLocation?) {
-    if let theNewLocation = newLocation {
+    if let theNewLocation = newLocation, theOldLocation = oldLocation {
+//      println("\(theNewLocation.course),  \(theNewLocation.speed)")
       if oldLocation?.coordinate.latitude != theNewLocation.coordinate.latitude || oldLocation?.coordinate.longitude != theNewLocation.coordinate.longitude {
         let region = MKCoordinateRegionMakeWithDistance(theNewLocation.coordinate, 100, 100)
         mapView.setRegion(region, animated: true)
-        var camera = mapView.camera
-        camera.heading = locationManager.course(oldLocation!, point2: newLocation!)
+        var camera = MKMapCamera(lookingAtCenterCoordinate: theNewLocation.coordinate, fromEyeCoordinate: theOldLocation.coordinate, eyeAltitude: 800.0)
         mapView.setCamera(camera, animated: true)
+//        var camera = mapView.camera
+//        camera.heading = locationManager.course(oldLocation!, point2: newLocation!)
+//        mapView.setCamera(camera, animated: true)
       }
+    }
+  }
+  
+  func updateMapDetail(oldLocation: CLLocation?, newLocation: CLLocation?, filter: Double) {
+//    if newLocation?.distanceFromLocation(oldLocation) < filter {
+//      return
+//    }
+    if let newLocation = newLocation, oldLocation = oldLocation  {
+      var camera = MKMapCamera(lookingAtCenterCoordinate: newLocation.coordinate, fromEyeCoordinate: oldLocation.coordinate, eyeAltitude: 200.0)
+//      mapView.setCamera(camera, animated: true)
+      detailViewController.drawCompleteRoute(detailViewController.gpxDataModel.trackPoints, currentPosition: newLocation, camera: camera, mod: .Scale(200))
     }
   }
 }
