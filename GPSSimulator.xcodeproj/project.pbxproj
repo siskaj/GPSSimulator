@@ -1248,6 +1248,7 @@
 				851D42FA1AE10DEA0030800E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		851D42FD1AE10DEA0030800E /* Build configuration list for PBXNativeTarget "GPSSimulator WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -1256,6 +1257,7 @@
 				851D42F81AE10DEA0030800E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		858D0FFE1A7F62F000C7390E /* Build configuration list for PBXProject "GPSSimulator" */ = {
 			isa = XCConfigurationList;
