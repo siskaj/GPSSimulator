@@ -3,8 +3,14 @@
 */
 
 import MapKit
+import GPX
 
-func CoordinateRegionBoundingMapPoints(points: [MKMapPoint]) -> MKCoordinateRegion {
+public enum Mode {
+	case Scale(Double)
+	case FullTrack
+}
+
+public func CoordinateRegionBoundingMapPoints(points: [MKMapPoint]) -> MKCoordinateRegion {
   if (points.count == 0) {
     return MKCoordinateRegionForMapRect(MKMapRectWorld)
   }
@@ -27,7 +33,7 @@ func CoordinateRegionBoundingMapPoints(points: [MKMapPoint]) -> MKCoordinateRegi
 }
 
 
-func MapRectBoundingMapPoints(points: [MKMapPoint]) -> MKMapRect {
+public func MapRectBoundingMapPoints(points: [MKMapPoint]) -> MKMapRect {
   let rect = points.reduce(MKMapRectNull) { (mapRect: MKMapRect, point: MKMapPoint) in
     let pointRect = MKMapRect(origin: point, size: MKMapSize(width: 0, height: 0))
     return MKMapRectUnion(mapRect, pointRect)
@@ -35,4 +41,33 @@ func MapRectBoundingMapPoints(points: [MKMapPoint]) -> MKMapRect {
   
   // Pomoci negativne nastaveneho Insetu zvetsim MapRect tak, aby vytvorena path se nedotykala okraju MapRect
   return MKMapRectInset(rect, -rect.size.width/10, -rect.size.height/10)
+}
+
+public func MKMapPointForWayPoint(point: GPXWaypoint) -> MKMapPoint {
+	return MKMapPointForCoordinate(CLLocationCoordinate2DMake(Double(point.latitude), Double(point.longitude)))
+}
+
+public func drawPath(points: [CGPoint], intoImage image: UIImage, curLocation location: CGPoint?) -> UIImage {
+	UIGraphicsBeginImageContext(image.size)
+	image.drawAtPoint(CGPointZero)
+	
+	//    let ctx = UIGraphicsGetCurrentContext()
+	UIColor.redColor().setStroke()
+	var path = UIBezierPath()
+	path.moveToPoint(points[0])
+	for i in 1..<points.count {
+		path.addLineToPoint(points[i])
+	}
+	path.lineWidth = 3
+	//    CGContextStrokePath(ctx)
+	path.stroke()
+	
+	if let location = location {
+		let pin = MKPinAnnotationView(annotation: nil, reuseIdentifier: nil)
+		pin.image.drawAtPoint(location)
+	}
+	
+	let retImage = UIGraphicsGetImageFromCurrentImageContext()
+	UIGraphicsEndImageContext()
+	return retImage
 }

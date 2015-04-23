@@ -76,11 +76,21 @@
 		85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85969DCE1A7FF47200A230AD /* LocationSimulator.swift */; };
 		859ECAE41A813F0100734297 /* 1_Ammergauer.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */; };
 		859ECAE51A813F0100734297 /* AfternoonRide.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE31A813F0100734297 /* AfternoonRide.gpx */; };
-		85AEB2DE1AD40EA20031E359 /* MapKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */; };
 		85FBD4D61A82B3A700F7A5A0 /* ViewControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */; };
 		C55039B51AE4EA5000FBBF57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039B41AE4EA5000FBBF57 /* MapKit.framework */; };
 		C55039B71AE4EB6C00FBBF57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039B41AE4EA5000FBBF57 /* MapKit.framework */; };
 		C55039BC1AE4EDC100FBBF57 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */; };
+		C5FD4C3B1AE8D8D000611B7C /* GPSSimulatorKit2.h in Headers */ = {isa = PBXBuildFile; fileRef = C5FD4C3A1AE8D8D000611B7C /* GPSSimulatorKit2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5FD4C411AE8D8D000611B7C /* GPSSimulatorKit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; };
+		C5FD4C4A1AE8D8D000611B7C /* GPSSimulatorKit2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FD4C491AE8D8D000611B7C /* GPSSimulatorKit2Tests.swift */; };
+		C5FD4C4D1AE8D8D000611B7C /* GPSSimulatorKit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; };
+		C5FD4C4E1AE8D8D000611B7C /* GPSSimulatorKit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5FD4C571AE8DA7500611B7C /* MapKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */; };
+		C5FD4C5A1AE8DB5E00611B7C /* GPSSimulatorKit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; };
+		C5FD4C5D1AE8E64000611B7C /* DirectionVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FD4C5C1AE8E64000611B7C /* DirectionVector.swift */; };
+		C5FD4C5E1AE8EC1400611B7C /* GPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; };
+		C5FD4C5F1AE8EC1400611B7C /* GPX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5FD4C631AE8ED4A00611B7C /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +178,41 @@
 			remoteGlobalIDString = E9DF0814194470060083F7F2;
 			remoteInfo = BrightFutures;
 		};
+		C5FD4C421AE8D8D000611B7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5FD4C351AE8D8CF00611B7C;
+			remoteInfo = GPSSimulatorKit2;
+		};
+		C5FD4C441AE8D8D000611B7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 858D10021A7F62F000C7390E;
+			remoteInfo = GPSSimulator;
+		};
+		C5FD4C4B1AE8D8D000611B7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5FD4C351AE8D8CF00611B7C;
+			remoteInfo = GPSSimulatorKit2;
+		};
+		C5FD4C581AE8DB4F00611B7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5FD4C351AE8D8CF00611B7C;
+			remoteInfo = GPSSimulatorKit2;
+		};
+		C5FD4C601AE8EC1400611B7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85073D2A1A7FC02600CFFF7E;
+			remoteInfo = GPX;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -177,6 +222,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C5FD4C4E1AE8D8D000611B7C /* GPSSimulatorKit2.framework in Embed Frameworks */,
 				85073D441A7FC02600CFFF7E /* GPX.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -191,6 +237,17 @@
 				851D42F61AE10DE90030800E /* GPSSimulator WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5FD4C621AE8EC1500611B7C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C5FD4C5F1AE8EC1400611B7C /* GPX.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -275,15 +332,23 @@
 		859ECAE01A80965900734297 /* MyPlayground1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground1.playground; sourceTree = "<group>"; };
 		859ECAE21A813F0100734297 /* 1_Ammergauer.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 1_Ammergauer.gpx; sourceTree = "<group>"; };
 		859ECAE31A813F0100734297 /* AfternoonRide.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AfternoonRide.gpx; sourceTree = "<group>"; };
-		85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitHelpers.swift; sourceTree = "<group>"; };
+		85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapKitHelpers.swift; path = ../GPSSimulator/MapKitHelpers.swift; sourceTree = "<group>"; };
 		85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = ../BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
 		85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDataModel.swift; sourceTree = "<group>"; };
+		C50E62011AE53E8B009B82BB /* GPSSimulator WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GPSSimulator WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
 		C55039B41AE4EA5000FBBF57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C55039B61AE4EA6500FBBF57 /* GPSSimulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GPSSimulator.entitlements; sourceTree = "<group>"; };
 		C55039B81AE4EB7700FBBF57 /* GPSSimulator WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GPSSimulator WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		C55039BA1AE4EDC100FBBF57 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
 		C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
+		C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GPSSimulatorKit2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5FD4C391AE8D8D000611B7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5FD4C3A1AE8D8D000611B7C /* GPSSimulatorKit2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPSSimulatorKit2.h; sourceTree = "<group>"; };
+		C5FD4C401AE8D8D000611B7C /* GPSSimulatorKit2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSSimulatorKit2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5FD4C481AE8D8D000611B7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5FD4C491AE8D8D000611B7C /* GPSSimulatorKit2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSSimulatorKit2Tests.swift; sourceTree = "<group>"; };
+		C5FD4C5C1AE8E64000611B7C /* DirectionVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionVector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +371,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FD4C5A1AE8DB5E00611B7C /* GPSSimulatorKit2.framework in Frameworks */,
 				C55039B71AE4EB6C00FBBF57 /* MapKit.framework in Frameworks */,
+				C5FD4C5E1AE8EC1400611B7C /* GPX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +383,7 @@
 			files = (
 				C55039B51AE4EA5000FBBF57 /* MapKit.framework in Frameworks */,
 				85073D421A7FC02600CFFF7E /* GPX.framework in Frameworks */,
+				C5FD4C4D1AE8D8D000611B7C /* GPSSimulatorKit2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +391,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5FD4C321AE8D8CF00611B7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5FD4C3D1AE8D8D000611B7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5FD4C411AE8D8D000611B7C /* GPSSimulatorKit2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +508,7 @@
 				851D42E21AE10DE90030800E /* InterfaceController.swift */,
 				851D42E41AE10DE90030800E /* Images.xcassets */,
 				851D42E01AE10DE90030800E /* Supporting Files */,
+				C50E62011AE53E8B009B82BB /* GPSSimulator WatchKit Extension-Bridging-Header.h */,
 			);
 			path = "GPSSimulator WatchKit Extension";
 			sourceTree = "<group>";
@@ -466,6 +550,8 @@
 				85073D3B1A7FC02600CFFF7E /* GPXTests */,
 				851D42DF1AE10DE90030800E /* GPSSimulator WatchKit Extension */,
 				851D42EC1AE10DE90030800E /* GPSSimulator WatchKit App */,
+				C5FD4C371AE8D8D000611B7C /* GPSSimulatorKit2 */,
+				C5FD4C461AE8D8D000611B7C /* GPSSimulatorKit2Tests */,
 				858D10041A7F62F000C7390E /* Products */,
 				85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */,
 				C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */,
@@ -481,6 +567,8 @@
 				85073D351A7FC02600CFFF7E /* GPXTests.xctest */,
 				851D42DE1AE10DE90030800E /* GPSSimulator WatchKit Extension.appex */,
 				851D42E81AE10DE90030800E /* GPSSimulator WatchKit App.app */,
+				C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */,
+				C5FD4C401AE8D8D000611B7C /* GPSSimulatorKit2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -497,7 +585,6 @@
 				858D100A1A7F62F000C7390E /* ViewController.swift */,
 				85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */,
 				858D100C1A7F62F000C7390E /* Main.storyboard */,
-				85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */,
 				85073DAB1A7FC25F00CFFF7E /* GPSSimulator-Bridging-Header.h */,
 				858D100F1A7F62F000C7390E /* Images.xcassets */,
 				858D10111A7F62F000C7390E /* LaunchScreen.xib */,
@@ -569,6 +656,42 @@
 			name = WormHole;
 			sourceTree = "<group>";
 		};
+		C5FD4C371AE8D8D000611B7C /* GPSSimulatorKit2 */ = {
+			isa = PBXGroup;
+			children = (
+				C5FD4C3A1AE8D8D000611B7C /* GPSSimulatorKit2.h */,
+				85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */,
+				C5FD4C381AE8D8D000611B7C /* Supporting Files */,
+				C5FD4C5C1AE8E64000611B7C /* DirectionVector.swift */,
+			);
+			path = GPSSimulatorKit2;
+			sourceTree = "<group>";
+		};
+		C5FD4C381AE8D8D000611B7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5FD4C391AE8D8D000611B7C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C5FD4C461AE8D8D000611B7C /* GPSSimulatorKit2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C5FD4C491AE8D8D000611B7C /* GPSSimulatorKit2Tests.swift */,
+				C5FD4C471AE8D8D000611B7C /* Supporting Files */,
+			);
+			path = GPSSimulatorKit2Tests;
+			sourceTree = "<group>";
+		};
+		C5FD4C471AE8D8D000611B7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5FD4C481AE8D8D000611B7C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -601,6 +724,14 @@
 				85073DA71A7FC10800CFFF7E /* GPXWaypoint.h in Headers */,
 				85073DA31A7FC10800CFFF7E /* GPXTrackSegment.h in Headers */,
 				85073D801A7FC10800CFFF7E /* GPXBounds.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5FD4C331AE8D8CF00611B7C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5FD4C3B1AE8D8D000611B7C /* GPSSimulatorKit2.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,11 +782,14 @@
 				851D42DA1AE10DE90030800E /* Sources */,
 				851D42DB1AE10DE90030800E /* Frameworks */,
 				851D42DC1AE10DE90030800E /* Resources */,
+				C5FD4C621AE8EC1500611B7C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C5FD4C591AE8DB4F00611B7C /* PBXTargetDependency */,
 				851D42EB1AE10DE90030800E /* PBXTargetDependency */,
+				C5FD4C611AE8EC1400611B7C /* PBXTargetDependency */,
 			);
 			name = "GPSSimulator WatchKit Extension";
 			productName = "GPSSimulator WatchKit Extension";
@@ -694,6 +828,7 @@
 				85EAB6721A8353D9002C80F5 /* PBXTargetDependency */,
 				85073D411A7FC02600CFFF7E /* PBXTargetDependency */,
 				851D42F51AE10DE90030800E /* PBXTargetDependency */,
+				C5FD4C4C1AE8D8D000611B7C /* PBXTargetDependency */,
 			);
 			name = GPSSimulator;
 			productName = GPSSimulator;
@@ -716,6 +851,43 @@
 			name = GPSSimulatorTests;
 			productName = GPSSimulatorTests;
 			productReference = 858D10181A7F62F000C7390E /* GPSSimulatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C5FD4C351AE8D8CF00611B7C /* GPSSimulatorKit2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5FD4C4F1AE8D8D100611B7C /* Build configuration list for PBXNativeTarget "GPSSimulatorKit2" */;
+			buildPhases = (
+				C5FD4C311AE8D8CF00611B7C /* Sources */,
+				C5FD4C321AE8D8CF00611B7C /* Frameworks */,
+				C5FD4C331AE8D8CF00611B7C /* Headers */,
+				C5FD4C341AE8D8CF00611B7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GPSSimulatorKit2;
+			productName = GPSSimulatorKit2;
+			productReference = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C5FD4C3F1AE8D8D000611B7C /* GPSSimulatorKit2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5FD4C521AE8D8D100611B7C /* Build configuration list for PBXNativeTarget "GPSSimulatorKit2Tests" */;
+			buildPhases = (
+				C5FD4C3C1AE8D8D000611B7C /* Sources */,
+				C5FD4C3D1AE8D8D000611B7C /* Frameworks */,
+				C5FD4C3E1AE8D8D000611B7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5FD4C431AE8D8D000611B7C /* PBXTargetDependency */,
+				C5FD4C451AE8D8D000611B7C /* PBXTargetDependency */,
+			);
+			name = GPSSimulatorKit2Tests;
+			productName = GPSSimulatorKit2Tests;
+			productReference = C5FD4C401AE8D8D000611B7C /* GPSSimulatorKit2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -767,6 +939,14 @@
 						CreatedOnToolsVersion = 6.1.1;
 						TestTargetID = 858D10021A7F62F000C7390E;
 					};
+					C5FD4C351AE8D8CF00611B7C = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = X4M58U72S4;
+					};
+					C5FD4C3F1AE8D8D000611B7C = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 858D10021A7F62F000C7390E;
+					};
 				};
 			};
 			buildConfigurationList = 858D0FFE1A7F62F000C7390E /* Build configuration list for PBXProject "GPSSimulator" */;
@@ -798,6 +978,8 @@
 				85073D341A7FC02600CFFF7E /* GPXTests */,
 				851D42DD1AE10DE90030800E /* GPSSimulator WatchKit Extension */,
 				851D42E71AE10DE90030800E /* GPSSimulator WatchKit App */,
+				C5FD4C351AE8D8CF00611B7C /* GPSSimulatorKit2 */,
+				C5FD4C3F1AE8D8D000611B7C /* GPSSimulatorKit2Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -886,6 +1068,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5FD4C341AE8D8CF00611B7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5FD4C3E1AE8D8D000611B7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -930,6 +1126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FD4C631AE8ED4A00611B7C /* MMWormhole.m in Sources */,
 				851D42E31AE10DE90030800E /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -939,7 +1136,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				85969DCF1A7FF47200A230AD /* LocationSimulator.swift in Sources */,
-				85AEB2DE1AD40EA20031E359 /* MapKitHelpers.swift in Sources */,
 				858D100B1A7F62F000C7390E /* ViewController.swift in Sources */,
 				8539547E1ADD9406004BD5EB /* GPXDataModel.swift in Sources */,
 				852D3EC41A88819600847F7F /* DetailViewController.swift in Sources */,
@@ -954,6 +1150,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				858D101F1A7F62F100C7390E /* GPSSimulatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5FD4C311AE8D8CF00611B7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5FD4C5D1AE8E64000611B7C /* DirectionVector.swift in Sources */,
+				C5FD4C571AE8DA7500611B7C /* MapKitHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5FD4C3C1AE8D8D000611B7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5FD4C4A1AE8D8D000611B7C /* GPSSimulatorKit2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,6 +1213,31 @@
 			name = BrightFutures;
 			targetProxy = C55039B21AE4CC3C00FBBF57 /* PBXContainerItemProxy */;
 		};
+		C5FD4C431AE8D8D000611B7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5FD4C351AE8D8CF00611B7C /* GPSSimulatorKit2 */;
+			targetProxy = C5FD4C421AE8D8D000611B7C /* PBXContainerItemProxy */;
+		};
+		C5FD4C451AE8D8D000611B7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 858D10021A7F62F000C7390E /* GPSSimulator */;
+			targetProxy = C5FD4C441AE8D8D000611B7C /* PBXContainerItemProxy */;
+		};
+		C5FD4C4C1AE8D8D000611B7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5FD4C351AE8D8CF00611B7C /* GPSSimulatorKit2 */;
+			targetProxy = C5FD4C4B1AE8D8D000611B7C /* PBXContainerItemProxy */;
+		};
+		C5FD4C591AE8DB4F00611B7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5FD4C351AE8D8CF00611B7C /* GPSSimulatorKit2 */;
+			targetProxy = C5FD4C581AE8DB4F00611B7C /* PBXContainerItemProxy */;
+		};
+		C5FD4C611AE8EC1400611B7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85073D2A1A7FC02600CFFF7E /* GPX */;
+			targetProxy = C5FD4C601AE8EC1400611B7C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1042,6 +1280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1068,6 +1307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1121,6 +1361,7 @@
 		851D42F71AE10DEA0030800E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "GPSSimulator WatchKit Extension/GPSSimulator WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1136,12 +1377,15 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "GPSSimulator WatchKit Extension/GPSSimulator WatchKit Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		851D42F81AE10DEA0030800E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "GPSSimulator WatchKit Extension/GPSSimulator WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1154,6 +1398,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "GPSSimulator WatchKit Extension/GPSSimulator WatchKit Extension-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -1344,6 +1589,98 @@
 			};
 			name = Release;
 		};
+		C5FD4C501AE8D8D100611B7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GPSSimulatorKit2/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C5FD4C511AE8D8D100611B7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = GPSSimulatorKit2/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C5FD4C531AE8D8D100611B7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GPSSimulatorKit2Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSSimulator.app/GPSSimulator";
+			};
+			name = Debug;
+		};
+		C5FD4C541AE8D8D100611B7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = GPSSimulatorKit2Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSSimulator.app/GPSSimulator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1409,6 +1746,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C5FD4C4F1AE8D8D100611B7C /* Build configuration list for PBXNativeTarget "GPSSimulatorKit2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5FD4C501AE8D8D100611B7C /* Debug */,
+				C5FD4C511AE8D8D100611B7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C5FD4C521AE8D8D100611B7C /* Build configuration list for PBXNativeTarget "GPSSimulatorKit2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5FD4C531AE8D8D100611B7C /* Debug */,
+				C5FD4C541AE8D8D100611B7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

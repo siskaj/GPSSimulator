@@ -9,6 +9,27 @@
 import UIKit
 import MapKit
 import BrightFutures
+import GPSSimulatorKit2
+
+//class DirectionVector: NSObject, NSCoding {
+//	let oldLoc: CLLocation
+//	let newLoc: CLLocation
+//	
+//	init(old: CLLocation, new: CLLocation) {
+//		self.oldLoc = old
+//		self.newLoc = new
+//	}
+//	
+//	required init(coder aDecoder: NSCoder) {
+//		oldLoc = aDecoder.decodeObjectForKey("oldLocation") as! CLLocation
+//		newLoc = aDecoder.decodeObjectForKey("newLocation") as! CLLocation
+//	}
+//	
+//	func encodeWithCoder(aCoder: NSCoder) {
+//		aCoder.encodeObject(oldLoc, forKey: "oldLocation")
+//		aCoder.encodeObject(newLoc, forKey: "newLocation")
+//	}
+//}
 
 class ViewController: UIViewController, MKMapViewDelegate {
   
@@ -18,6 +39,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
   var fakeLocations: FakeLocationsArray = [CLLocation]()
   var route: MKRoute!
   var detailViewController: DetailViewController!
+	var gpxDataModel: GPXDataModel!
+	
+	var myDefaults: NSUserDefaults!
+	var wormHole: MMWormhole!
   
   var aktualniRouteStep: ((CLLocation) -> (MKRouteStep?, MKRouteStep?))!
   
@@ -53,6 +78,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     super.viewDidLoad()
+		myDefaults = NSUserDefaults(suiteName: "group.com.baltoro.GPSSimulator")
+		wormHole = MMWormhole(applicationGroupIdentifier: "group.com.baltoro.GPSSimulator", optionalDirectory: nil)
+		
+		
     
     if fromGPXFile {
       let path = NSBundle.mainBundle().pathForResource("AfternoonRide", ofType: "gpx")
@@ -67,6 +96,15 @@ class ViewController: UIViewController, MKMapViewDelegate {
       mapView.setRegion(region, animated: true)
       
       detailViewController.configureView(Configuration.GPX(path!))
+			
+			gpxDataModel = GPXDataModel(filePath: path!)
+			
+			// Pomoci sharedUserDefaults posli predej GPX data WatchKit aplikaci
+			let identifier = "group.com.baltoro.GPSSimulator"
+			var sharedUserDefaults = NSUserDefaults(suiteName: identifier)
+			if let sharedUserDefaults = sharedUserDefaults {
+				sharedUserDefaults.setObject(gpxDataModel.trackPoints, forKey: "trackPoints")
+			}
       
       locationManager.delegate = self
       locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
@@ -117,15 +155,21 @@ extension ViewController: CLLocationManagerDelegate {
   }
   
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    let oldLocation = locations.first as? CLLocation
-    let newLocation = locations.last as? CLLocation
+    if let oldLocation = locations.first as? CLLocation,
+			let newLocation = locations.last as? CLLocation {
 //    println("\(newLocation.course),  \(newLocation.speed)")
 //    let actualSteps = aktualniRouteStep( newLocation!)
 //    if let arrivingStep = actualSteps.0 {
 //      
 //    }
-    updateMap(oldLocation, newLocation: newLocation)
-    updateMapDetail(oldLocation, newLocation: newLocation, filter: 50)
+		
+				let directionVector = DirectionVector(old: oldLocation, new: newLocation)
+			wormHole.passMessageObject(directionVector, identifier: "Direction")
+//			wormHole.passMessageObject(oldLocation, identifier: "OldLocation")
+//			wormHole.passMessageObject(newLocation, identifier: "NewLocation")
+			updateMap(oldLocation, newLocation: newLocation)
+			updateMapDetail(oldLocation, newLocation: newLocation, filter: 50)
+		}
   }
   
   func updateMap(oldLocation: CLLocation?, newLocation: CLLocation?) {
@@ -142,7 +186,7 @@ extension ViewController: CLLocationManagerDelegate {
       }
     }
   }
-  
+	
   func updateMapDetail(oldLocation: CLLocation?, newLocation: CLLocation?, filter: Double) {
 //    if newLocation?.distanceFromLocation(oldLocation) < filter {
 //      return

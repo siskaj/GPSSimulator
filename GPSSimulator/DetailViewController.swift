@@ -8,40 +8,11 @@
 
 import UIKit
 import MapKit
-
-func drawPath(points: [CGPoint], intoImage image: UIImage, curLocation location: CGPoint?) -> UIImage {
-  UIGraphicsBeginImageContext(image.size)
-  image.drawAtPoint(CGPointZero)
-  
-  //    let ctx = UIGraphicsGetCurrentContext()
-  UIColor.redColor().setStroke()
-  var path = UIBezierPath()
-  path.moveToPoint(points[0])
-  for i in 1..<points.count {
-    path.addLineToPoint(points[i])
-  }
-  path.lineWidth = 3
-  //    CGContextStrokePath(ctx)
-  path.stroke()
-  
-  if let location = location {
-    let pin = MKPinAnnotationView(annotation: nil, reuseIdentifier: nil)
-    pin.image.drawAtPoint(location)
-  }
-  
-  let retImage = UIGraphicsGetImageFromCurrentImageContext()
-  UIGraphicsEndImageContext()
-  return retImage
-}
+import GPSSimulatorKit2
 
 enum Configuration {
   case GPX(String)
   case Directions(MKRoute)
-}
-
-enum Mode {
-  case Scale(Double)
-  case FullTrack
 }
 
 class DetailViewController: UIViewController {
