@@ -18,22 +18,30 @@ class GPXDataModel {
   var wayPoints = [GPXWaypoint]()
   var trackPointsAsMapPoints = [MKMapPoint]()
   var wayPointsAsMapPoints = [MKMapPoint]()
-  
+	var clTrackPoints = [CLLocation]()
+	
   init(filePath: String) {
-    let (t,w) = self.loadGPXFile(filePath)
+    let (loc,t,w) = self.loadGPXFile(filePath)
+		self.clTrackPoints = loc
     self.trackPoints = t
     self.wayPoints = w
     self.trackPointsAsMapPoints = self.trackPoints.map(MKMapPointForWayPoint)
     self.wayPointsAsMapPoints = self.wayPoints.map(MKMapPointForWayPoint)
   }
   
-  func loadGPXFile(filePath: String) -> ([GPXTrackPoint], [GPXWaypoint]) {
+  func loadGPXFile(filePath: String) -> ([CLLocation], [GPXTrackPoint], [GPXWaypoint]) {
     let root = GPXParser.parseGPXAtPath(filePath)
     
     let track = root.tracks.first as! GPXTrack
     let segment = track.tracksegments.first as! GPXTrackSegment
     let trackpoints = segment.trackpoints as! [GPXTrackPoint]
-    
+		
+		var clTrackPoints = [CLLocation]()
+		for point in trackpoints {
+			let loc = CLLocation(latitude: Double(point.latitude), longitude: Double(point.longitude))
+			clTrackPoints.append(loc)
+		}
+		
     var waypoints = [GPXWaypoint]()
     let routes = root.routes
     if routes.count > 0 {
@@ -45,7 +53,7 @@ class GPXDataModel {
     waypoints.insert(trackpoints.first!, atIndex: 0)
     waypoints.append(trackpoints.last!)
     
-    return (trackpoints, waypoints)
+    return (clTrackPoints, trackpoints, waypoints)
   }
   
   

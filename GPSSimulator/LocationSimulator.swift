@@ -65,6 +65,7 @@ class LocationSimulator: CLLocationManager {
   }
     
   func fakeNewLocation() {
+
     if currentLocation.distanceFromLocation(previousLocation) > distanceFilter {
       let loc = [previousLocation, currentLocation]
       delegate.locationManager!(self, didUpdateLocations: loc)

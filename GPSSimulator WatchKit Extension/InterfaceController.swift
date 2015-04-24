@@ -13,17 +13,19 @@ import GPX
 
 class InterfaceController: WKInterfaceController {
 	let wormHole: MMWormhole!
-	var trackPoints: [GPXTrackPoint]?
+	var trackPoints: [CLLocation]?
 
 	@IBOutlet weak var interfaceImage: WKInterfaceImage!
 	
 	override init() {
-		wormHole = MMWormhole(applicationGroupIdentifier: "group.com.baltoro.GPSSSimulator", optionalDirectory: nil)
+		wormHole = MMWormhole(applicationGroupIdentifier: "group.com.baltoro.GPSSimulator", optionalDirectory: nil)
 		
 		let identifier = "group.com.baltoro.GPSSimulator"
 		var sharedUserDefaults = NSUserDefaults(suiteName: identifier)
 		if let sharedUserDefaults = sharedUserDefaults {
-			trackPoints = sharedUserDefaults.objectForKey("trackPoints") as? [GPXTrackPoint]
+			if let data = sharedUserDefaults.objectForKey("trackPoints") as? NSData {
+				trackPoints = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [CLLocation]
+			}
 		}
 		
 		super.init()
@@ -38,23 +40,28 @@ class InterfaceController: WKInterfaceController {
 	override func willActivate() {
 		// This method is called when watch view controller is about to be visible to user
 		super.willActivate()
-		
+		startListeningForMessages()
 	}
 
 	override func didDeactivate() {
 		// This method is called when watch view controller is no longer visible
+		stopListeningForMessages()
 		super.didDeactivate()
 	}
 
 	private func startListeningForMessages() {
 		wormHole.listenForMessageWithIdentifier("Direction") { messageObject in
 			if let directionVector = messageObject as? DirectionVector, trackPoints_ = self.trackPoints {
-				self.drawCompleteRoute(trackPoints_, directionVector: directionVector, mod: .FullTrack)
+				self.drawCompleteRoute(trackPoints_, directionVector: directionVector, mod: Mode.FullTrack)
 			}
 		}
 	}
 	
-	func drawCompleteRoute(trackPoints: [GPXTrackPoint], directionVector: DirectionVector, mod: Mode) {
+	private func stopListeningForMessages() {
+		wormHole.stopListeningForMessageWithIdentifier("Direction")
+	}
+	
+	func drawCompleteRoute(trackPoints: [CLLocation], directionVector: DirectionVector, mod: Mode) {
 		let options = MKMapSnapshotOptions()
 //		options.scale = UIScreen.mainScreen().scale
 //		options.size = imageView.frame.size
@@ -63,7 +70,7 @@ class InterfaceController: WKInterfaceController {
 		switch mod {
 		case .FullTrack:
 			//    let curPositionAsMapPoint = MKMapPointForCoordinate(currentPosition.coordinate)
-			var allPoints = trackPoints.map(MKMapPointForWayPoint)
+			var allPoints = trackPoints.map { MKMapPointForCoordinate($0.coordinate) }
 			//    allPoints.append(curPositionAsMapPoint)
 			options.mapRect = MapRectBoundingMapPoints(allPoints)
 		case .Scale(let scale):
@@ -76,7 +83,7 @@ class InterfaceController: WKInterfaceController {
 		let snapshotter = MKMapSnapshotter(options: options)
 		snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot!, error: NSError!) -> Void in
 			if error == nil {
-				var poleBodu = trackPoints.map { snapshot.pointForCoordinate(CLLocationCoordinate2DMake(Double($0.latitude), Double($0.longitude))) }
+				var poleBodu = trackPoints.map { snapshot.pointForCoordinate($0.coordinate) }
 				// Nutne zkontrolovat; nektere body to konvertuje na NaN
 				poleBodu = poleBodu.filter { !($0.x.isNaN || $0.y.isNaN) }
 				let currentPosition = directionVector.newLoc

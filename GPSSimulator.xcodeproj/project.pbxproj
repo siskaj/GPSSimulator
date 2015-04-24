@@ -80,13 +80,17 @@
 		C55039B51AE4EA5000FBBF57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039B41AE4EA5000FBBF57 /* MapKit.framework */; };
 		C55039B71AE4EB6C00FBBF57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039B41AE4EA5000FBBF57 /* MapKit.framework */; };
 		C55039BC1AE4EDC100FBBF57 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */; };
+		C59E615C1AEA9BE7003C8681 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */; };
+		C59E615D1AEA9BE7003C8681 /* BrightFutures.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C59E61611AEAA738003C8681 /* GPSSimulatorKit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; };
+		C59E61621AEAA738003C8681 /* GPSSimulatorKit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C59E61631AEAAA78003C8681 /* GPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; };
 		C5FD4C3B1AE8D8D000611B7C /* GPSSimulatorKit2.h in Headers */ = {isa = PBXBuildFile; fileRef = C5FD4C3A1AE8D8D000611B7C /* GPSSimulatorKit2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5FD4C411AE8D8D000611B7C /* GPSSimulatorKit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; };
 		C5FD4C4A1AE8D8D000611B7C /* GPSSimulatorKit2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FD4C491AE8D8D000611B7C /* GPSSimulatorKit2Tests.swift */; };
 		C5FD4C4D1AE8D8D000611B7C /* GPSSimulatorKit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; };
 		C5FD4C4E1AE8D8D000611B7C /* GPSSimulatorKit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5FD4C571AE8DA7500611B7C /* MapKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */; };
-		C5FD4C5A1AE8DB5E00611B7C /* GPSSimulatorKit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; };
 		C5FD4C5D1AE8E64000611B7C /* DirectionVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FD4C5C1AE8E64000611B7C /* DirectionVector.swift */; };
 		C5FD4C5E1AE8EC1400611B7C /* GPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; };
 		C5FD4C5F1AE8EC1400611B7C /* GPX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -171,7 +175,14 @@
 			remoteGlobalIDString = E9DF0820194470060083F7F2;
 			remoteInfo = BrightFuturesTests;
 		};
-		C55039B21AE4CC3C00FBBF57 /* PBXContainerItemProxy */ = {
+		C59E61641AEAAA95003C8681 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85073D2A1A7FC02600CFFF7E;
+			remoteInfo = GPX;
+		};
+		C59E61661AEAAAE0003C8681 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
 			proxyType = 1;
@@ -222,6 +233,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C59E615D1AEA9BE7003C8681 /* BrightFutures.framework in Embed Frameworks */,
 				C5FD4C4E1AE8D8D000611B7C /* GPSSimulatorKit2.framework in Embed Frameworks */,
 				85073D441A7FC02600CFFF7E /* GPX.framework in Embed Frameworks */,
 			);
@@ -245,6 +257,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C59E61621AEAA738003C8681 /* GPSSimulatorKit2.framework in Embed Frameworks */,
 				C5FD4C5F1AE8EC1400611B7C /* GPX.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -371,8 +384,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FD4C5A1AE8DB5E00611B7C /* GPSSimulatorKit2.framework in Frameworks */,
 				C55039B71AE4EB6C00FBBF57 /* MapKit.framework in Frameworks */,
+				C59E61611AEAA738003C8681 /* GPSSimulatorKit2.framework in Frameworks */,
 				C5FD4C5E1AE8EC1400611B7C /* GPX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55039B51AE4EA5000FBBF57 /* MapKit.framework in Frameworks */,
+				C59E615C1AEA9BE7003C8681 /* BrightFutures.framework in Frameworks */,
 				85073D421A7FC02600CFFF7E /* GPX.framework in Frameworks */,
 				C5FD4C4D1AE8D8D000611B7C /* GPSSimulatorKit2.framework in Frameworks */,
 			);
@@ -398,6 +412,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C59E61631AEAAA78003C8681 /* GPX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,7 +839,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C55039B31AE4CC3C00FBBF57 /* PBXTargetDependency */,
+				C59E61671AEAAAE0003C8681 /* PBXTargetDependency */,
 				85EAB6721A8353D9002C80F5 /* PBXTargetDependency */,
 				85073D411A7FC02600CFFF7E /* PBXTargetDependency */,
 				851D42F51AE10DE90030800E /* PBXTargetDependency */,
@@ -865,6 +880,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C59E61651AEAAA95003C8681 /* PBXTargetDependency */,
 			);
 			name = GPSSimulatorKit2;
 			productName = GPSSimulatorKit2;
@@ -1208,10 +1224,15 @@
 			name = BrightFutures;
 			targetProxy = 85EAB6711A8353D9002C80F5 /* PBXContainerItemProxy */;
 		};
-		C55039B31AE4CC3C00FBBF57 /* PBXTargetDependency */ = {
+		C59E61651AEAAA95003C8681 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85073D2A1A7FC02600CFFF7E /* GPX */;
+			targetProxy = C59E61641AEAAA95003C8681 /* PBXContainerItemProxy */;
+		};
+		C59E61671AEAAAE0003C8681 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = BrightFutures;
-			targetProxy = C55039B21AE4CC3C00FBBF57 /* PBXContainerItemProxy */;
+			targetProxy = C59E61661AEAAAE0003C8681 /* PBXContainerItemProxy */;
 		};
 		C5FD4C431AE8D8D000611B7C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1754,6 +1775,7 @@
 				C5FD4C511AE8D8D100611B7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5FD4C521AE8D8D100611B7C /* Build configuration list for PBXNativeTarget "GPSSimulatorKit2Tests" */ = {
 			isa = XCConfigurationList;
@@ -1762,6 +1784,7 @@
 				C5FD4C541AE8D8D100611B7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

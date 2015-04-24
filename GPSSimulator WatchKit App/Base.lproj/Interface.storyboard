@@ -8,12 +8,12 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="GPSSimulator_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="GPSSimulator_WatchKit_Extension">
                     <items>
                         <imageView width="1" height="1" alignment="left" id="gA6-ly-30H"/>
                     </items>
                     <connections>
-                        <outlet property="image" destination="gA6-ly-30H" id="p5u-Lu-axv"/>
+                        <outlet property="interfaceImage" destination="gA6-ly-30H" id="ljm-1Z-Ciw"/>
                     </connections>
                 </controller>
             </objects>

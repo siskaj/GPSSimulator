@@ -87,7 +87,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
       let path = NSBundle.mainBundle().pathForResource("AfternoonRide", ofType: "gpx")
       locationManager = LocationSimulator(mapView: mapView, filePath: path!)
       checkLocationAuthorizationStatus()
-      
+			NSLog("Jsem fromGPXFile")
+			
       mapView.showsUserLocation = true
       
       mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
@@ -100,17 +101,19 @@ class ViewController: UIViewController, MKMapViewDelegate {
 			gpxDataModel = GPXDataModel(filePath: path!)
 			
 			// Pomoci sharedUserDefaults posli predej GPX data WatchKit aplikaci
+			let data = NSKeyedArchiver.archivedDataWithRootObject(gpxDataModel.clTrackPoints)
 			let identifier = "group.com.baltoro.GPSSimulator"
 			var sharedUserDefaults = NSUserDefaults(suiteName: identifier)
 			if let sharedUserDefaults = sharedUserDefaults {
-				sharedUserDefaults.setObject(gpxDataModel.trackPoints, forKey: "trackPoints")
+				sharedUserDefaults.setObject(data, forKey: "trackPoints")
 			}
       
       locationManager.delegate = self
       locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+			
       
-      
-      delay(10, locationManager.startUpdatingLocation)
+//      delay(10, locationManager.startUpdatingLocation)
+			locationManager.startUpdatingLocation()
 
     } else {
       let (route,pole): (Future<MKRoute>,Future<FakeLocationsArray>) = setupScenario()
@@ -155,6 +158,8 @@ extension ViewController: CLLocationManagerDelegate {
   }
   
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//		NSLog("Jsem tady")
+
     if let oldLocation = locations.first as? CLLocation,
 			let newLocation = locations.last as? CLLocation {
 //    println("\(newLocation.course),  \(newLocation.speed)")
