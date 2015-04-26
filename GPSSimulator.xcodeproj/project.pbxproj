@@ -80,6 +80,10 @@
 		C55039B51AE4EA5000FBBF57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039B41AE4EA5000FBBF57 /* MapKit.framework */; };
 		C55039B71AE4EB6C00FBBF57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039B41AE4EA5000FBBF57 /* MapKit.framework */; };
 		C55039BC1AE4EDC100FBBF57 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */; };
+		C564795D1AEB6602007C1A23 /* ZoomedInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C564795C1AEB6602007C1A23 /* ZoomedInController.swift */; };
+		C56479601AEB6DA4007C1A23 /* ParentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C564795F1AEB6DA4007C1A23 /* ParentController.swift */; };
+		C56479641AEB6EB2007C1A23 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */; };
+		C56479651AEB6EB2007C1A23 /* BrightFutures.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C59E615C1AEA9BE7003C8681 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */; };
 		C59E615D1AEA9BE7003C8681 /* BrightFutures.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C59E61611AEAA738003C8681 /* GPSSimulatorKit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */; };
@@ -175,6 +179,20 @@
 			remoteGlobalIDString = E9DF0820194470060083F7F2;
 			remoteInfo = BrightFuturesTests;
 		};
+		C56479621AEB6EA5007C1A23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E9DF0814194470060083F7F2;
+			remoteInfo = BrightFutures;
+		};
+		C56479661AEB6EB2007C1A23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E9DF0814194470060083F7F2;
+			remoteInfo = BrightFutures;
+		};
 		C59E61641AEAAA95003C8681 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
@@ -257,6 +275,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C56479651AEB6EB2007C1A23 /* BrightFutures.framework in Embed Frameworks */,
 				C59E61621AEAA738003C8681 /* GPSSimulatorKit2.framework in Embed Frameworks */,
 				C5FD4C5F1AE8EC1400611B7C /* GPX.framework in Embed Frameworks */,
 			);
@@ -355,6 +374,8 @@
 		C55039B81AE4EB7700FBBF57 /* GPSSimulator WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GPSSimulator WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		C55039BA1AE4EDC100FBBF57 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
 		C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
+		C564795C1AEB6602007C1A23 /* ZoomedInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomedInController.swift; sourceTree = "<group>"; };
+		C564795F1AEB6DA4007C1A23 /* ParentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentController.swift; path = "GPSSimulator WatchKit Extension/ParentController.swift"; sourceTree = SOURCE_ROOT; };
 		C5FD4C361AE8D8CF00611B7C /* GPSSimulatorKit2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GPSSimulatorKit2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FD4C391AE8D8D000611B7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5FD4C3A1AE8D8D000611B7C /* GPSSimulatorKit2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPSSimulatorKit2.h; sourceTree = "<group>"; };
@@ -385,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55039B71AE4EB6C00FBBF57 /* MapKit.framework in Frameworks */,
+				C56479641AEB6EB2007C1A23 /* BrightFutures.framework in Frameworks */,
 				C59E61611AEAA738003C8681 /* GPSSimulatorKit2.framework in Frameworks */,
 				C5FD4C5E1AE8EC1400611B7C /* GPX.framework in Frameworks */,
 			);
@@ -520,7 +542,9 @@
 			isa = PBXGroup;
 			children = (
 				C55039B81AE4EB7700FBBF57 /* GPSSimulator WatchKit Extension.entitlements */,
+				C564795F1AEB6DA4007C1A23 /* ParentController.swift */,
 				851D42E21AE10DE90030800E /* InterfaceController.swift */,
+				C564795C1AEB6602007C1A23 /* ZoomedInController.swift */,
 				851D42E41AE10DE90030800E /* Images.xcassets */,
 				851D42E01AE10DE90030800E /* Supporting Files */,
 				C50E62011AE53E8B009B82BB /* GPSSimulator WatchKit Extension-Bridging-Header.h */,
@@ -802,9 +826,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				C56479631AEB6EA5007C1A23 /* PBXTargetDependency */,
 				C5FD4C591AE8DB4F00611B7C /* PBXTargetDependency */,
 				851D42EB1AE10DE90030800E /* PBXTargetDependency */,
 				C5FD4C611AE8EC1400611B7C /* PBXTargetDependency */,
+				C56479671AEB6EB2007C1A23 /* PBXTargetDependency */,
 			);
 			name = "GPSSimulator WatchKit Extension";
 			productName = "GPSSimulator WatchKit Extension";
@@ -1142,8 +1168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C564795D1AEB6602007C1A23 /* ZoomedInController.swift in Sources */,
 				C5FD4C631AE8ED4A00611B7C /* MMWormhole.m in Sources */,
 				851D42E31AE10DE90030800E /* InterfaceController.swift in Sources */,
+				C56479601AEB6DA4007C1A23 /* ParentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1223,6 +1251,16 @@
 			isa = PBXTargetDependency;
 			name = BrightFutures;
 			targetProxy = 85EAB6711A8353D9002C80F5 /* PBXContainerItemProxy */;
+		};
+		C56479631AEB6EA5007C1A23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BrightFutures;
+			targetProxy = C56479621AEB6EA5007C1A23 /* PBXContainerItemProxy */;
+		};
+		C56479671AEB6EB2007C1A23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BrightFutures;
+			targetProxy = C56479661AEB6EB2007C1A23 /* PBXContainerItemProxy */;
 		};
 		C59E61651AEAAA95003C8681 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

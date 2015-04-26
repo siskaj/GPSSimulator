@@ -5,19 +5,34 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--FullTrack-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="GPSSimulator_WatchKit_Extension">
+                <controller identifier="FullTrack" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="GPSSimulator_WatchKit_Extension">
                     <items>
                         <imageView width="1" height="1" alignment="left" id="gA6-ly-30H"/>
                     </items>
                     <connections>
-                        <outlet property="interfaceImage" destination="gA6-ly-30H" id="ljm-1Z-Ciw"/>
+                        <outlet property="mapImage" destination="gA6-ly-30H" id="QnG-KI-z3b"/>
+                        <segue destination="tZK-NL-WDI" kind="relationship" relationship="nextPage" id="708-6D-HVU"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="401" y="406"/>
+        </scene>
+        <!--ZoomedIn-->
+        <scene sceneID="8DL-PC-RCh">
+            <objects>
+                <controller identifier="ZoomedIn" id="tZK-NL-WDI" customClass="ZoomedInController" customModule="GPSSimulator_WatchKit_Extension">
+                    <items>
+                        <imageView width="1" height="1" alignment="left" id="axW-cU-YMJ"/>
+                    </items>
+                    <connections>
+                        <outlet property="mapImage" destination="axW-cU-YMJ" id="Yw4-bN-a0D"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="667" y="410.5"/>
         </scene>
     </scenes>
 </document>
