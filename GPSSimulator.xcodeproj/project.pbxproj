@@ -938,6 +938,7 @@
 		858D0FFB1A7F62F000C7390E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Baltoro;
 				TargetAttributes = {
