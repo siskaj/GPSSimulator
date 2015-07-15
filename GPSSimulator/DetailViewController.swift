@@ -71,7 +71,7 @@ class DetailViewController: UIViewController {
         options.region = MKCoordinateRegionMakeWithDistance(MKCoordinateForMapPoint(bodZmenySmeru), 200.0, 200.0)
     
     let snapshotter = MKMapSnapshotter(options: options)
-    snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot!, error: NSError!) -> Void in
+    snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot?, error: NSError?) -> Void in
       if error == nil {
         var poleBodu = [CGPoint]()
         for i in 0..<pocetArrivingBodu {

@@ -86,7 +86,7 @@ class LocationSimulator: CLLocationManager {
       } else {
         currentLocation = fakeLocations[index]
       }
-      delay(updateInterval, fakeNewLocation)
+      delay(updateInterval, closure: fakeNewLocation)
     }
   }
 
@@ -130,9 +130,9 @@ class LocationSimulator: CLLocationManager {
     let p1 = MKMapPointForCoordinate(point1.coordinate)
     let p2 = MKMapPointForCoordinate(point2.coordinate)
     let dx = p2.x - p1.x
-    println("dx - \(dx)")
+    print("dx - \(dx)")
     let dy = p2.y - p1.y
-    println("dy = \(dy), dx/dy = \(dx/dy), atan  = \(rad * atan(dx/dy))")
+    print("dy = \(dy), dx/dy = \(dx/dy), atan  = \(rad * atan(dx/dy))")
     if dx > 0 {
       if dy > 0 { tcl = rad * atan(dx/dy) }
       if dy < 0 { tcl = 180 - rad * atan(-dx/dy) }

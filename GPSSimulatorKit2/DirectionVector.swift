@@ -18,7 +18,7 @@ public class DirectionVector: NSObject, NSCoding {
 		self.newLoc = new
 	}
 	
-	required public init(coder aDecoder: NSCoder) {
+	required public init?(coder aDecoder: NSCoder) {
 		oldLoc = aDecoder.decodeObjectForKey("oldLocation") as! CLLocation
 		newLoc = aDecoder.decodeObjectForKey("newLocation") as! CLLocation
 	}

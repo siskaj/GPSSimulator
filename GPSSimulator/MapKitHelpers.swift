@@ -53,7 +53,7 @@ public func drawPath(points: [CGPoint], intoImage image: UIImage, curLocation lo
 	
 	//    let ctx = UIGraphicsGetCurrentContext()
 	UIColor.redColor().setStroke()
-	var path = UIBezierPath()
+	let path = UIBezierPath()
 	path.moveToPoint(points[0])
 	for i in 1..<points.count {
 		path.addLineToPoint(points[i])
@@ -64,7 +64,7 @@ public func drawPath(points: [CGPoint], intoImage image: UIImage, curLocation lo
 	
 	if let location = location {
 		let pin = MKPinAnnotationView(annotation: nil, reuseIdentifier: nil)
-		pin.image.drawAtPoint(location)
+		pin.image!.drawAtPoint(location)
 	}
 	
 	let retImage = UIGraphicsGetImageFromCurrentImageContext()

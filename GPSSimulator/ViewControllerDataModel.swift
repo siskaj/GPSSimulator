@@ -26,17 +26,17 @@ func fakeLocationFromGPXFile(filePath: String) -> FakeLocationsArray? {
   } else { return nil }   // pokud tracks nemaji ani prvni prvek
 }
 
-func setupScenario() -> (Future<MKRoute>,Future<FakeLocationsArray>) {
+func setupScenario() -> (Future<MKRoute, NSError>,Future<FakeLocationsArray, NSError>) {
 
-  func obtainMapItemFromString(nazev: String) -> Future<MKMapItem> {
-    let promise = Promise<MKMapItem>()
+  func obtainMapItemFromString(nazev: String) -> Future<MKMapItem, NSError> {
+    let promise = Promise<MKMapItem, NSError>()
     let geocoder = CLGeocoder()
     
-    geocoder.geocodeAddressString(nazev) { (placemarks: [AnyObject]!, error: NSError!) in
+    geocoder.geocodeAddressString(nazev) { (placemarks: [CLPlacemark]?, error: NSError?) in
       var outError: NSError?
-      if placemarks != nil && placemarks.count > 0 {
-        let mark = placemarks[0] as! CLPlacemark
-        let MKMark = MKPlacemark(coordinate: mark.location.coordinate, addressDictionary: nil)
+      if let placemarks = placemarks where placemarks.count > 0 {
+        let mark = placemarks[0]
+        let MKMark = MKPlacemark(coordinate: mark.location!.coordinate, addressDictionary: nil)
         promise.success(MKMapItem(placemark: MKMark))
       } else {
         if error != nil {
@@ -104,10 +104,10 @@ func setupScenario() -> (Future<MKRoute>,Future<FakeLocationsArray>) {
 
 func WayPointsFromMKRoute(route: MKRoute) -> [GPXWaypoint] {
   var pole = [GPXWaypoint]()
-  let steps:[MKRouteStep] = route.steps as! [MKRouteStep]
+  let steps:[MKRouteStep] = route.steps as [MKRouteStep]
   for step in steps {
-    var pocet = step.polyline.pointCount
-    var coord = MKCoordinateForMapPoint(step.polyline.points()[pocet-1])
+    let pocet = step.polyline.pointCount
+    let coord = MKCoordinateForMapPoint(step.polyline.points()[pocet-1])
     pole.append(GPXWaypoint(latitude: CGFloat(coord.latitude), longitude: CGFloat(coord.longitude)))
   }
   return pole
@@ -133,13 +133,13 @@ func aktualniWaypoit(waypoints: [GPXWaypoint], location: CLLocation, distance: D
 //}
 
 func aktualniRouteStepGenerator(route: MKRoute, filter: Double) -> ((currentLocation: CLLocation) -> (MKRouteStep?, MKRouteStep?)) {
-  var remainingSteps: [MKRouteStep] = route.steps as! [MKRouteStep]
+  var remainingSteps: [MKRouteStep] = route.steps as [MKRouteStep]
   var lastDistance: Double
   var arrivingStep: MKRouteStep? = nil
   var leavingStep: MKRouteStep? = nil
   
   func f(currentLocation : CLLocation) -> (MKRouteStep?, MKRouteStep?) {
-    var pocet = remainingSteps[0].polyline.pointCount
+    let pocet = remainingSteps[0].polyline.pointCount
     var coord = MKCoordinateForMapPoint(remainingSteps[0].polyline.points()[pocet-1])
     var location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
     var dist = location.distanceFromLocation(currentLocation)
