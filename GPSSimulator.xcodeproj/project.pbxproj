@@ -78,6 +78,9 @@
 		859ECAE51A813F0100734297 /* AfternoonRide.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 859ECAE31A813F0100734297 /* AfternoonRide.gpx */; };
 		85AEB2DE1AD40EA20031E359 /* MapKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */; };
 		85FBD4D61A82B3A700F7A5A0 /* ViewControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */; };
+		C55039B51AE4EA5000FBBF57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039B41AE4EA5000FBBF57 /* MapKit.framework */; };
+		C55039B71AE4EB6C00FBBF57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55039B41AE4EA5000FBBF57 /* MapKit.framework */; };
+		C55039BC1AE4EDC100FBBF57 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +143,27 @@
 		85EAB6711A8353D9002C80F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E9DF0814194470060083F7F2;
+			remoteInfo = BrightFutures;
+		};
+		C55039AE1AE4CC2E00FBBF57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E9DF0815194470060083F7F2;
+			remoteInfo = BrightFutures;
+		};
+		C55039B01AE4CC2E00FBBF57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E9DF0820194470060083F7F2;
+			remoteInfo = BrightFuturesTests;
+		};
+		C55039B21AE4CC3C00FBBF57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = E9DF0814194470060083F7F2;
 			remoteInfo = BrightFutures;
@@ -254,6 +278,12 @@
 		85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitHelpers.swift; sourceTree = "<group>"; };
 		85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = ../BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
 		85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDataModel.swift; sourceTree = "<group>"; };
+		C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
+		C55039B41AE4EA5000FBBF57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C55039B61AE4EA6500FBBF57 /* GPSSimulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GPSSimulator.entitlements; sourceTree = "<group>"; };
+		C55039B81AE4EB7700FBBF57 /* GPSSimulator WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GPSSimulator WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		C55039BA1AE4EDC100FBBF57 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
+		C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55039B71AE4EB6C00FBBF57 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55039B51AE4EA5000FBBF57 /* MapKit.framework in Frameworks */,
 				85073D421A7FC02600CFFF7E /* GPX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +421,7 @@
 		851D42DF1AE10DE90030800E /* GPSSimulator WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C55039B81AE4EB7700FBBF57 /* GPSSimulator WatchKit Extension.entitlements */,
 				851D42E21AE10DE90030800E /* InterfaceController.swift */,
 				851D42E41AE10DE90030800E /* Images.xcassets */,
 				851D42E01AE10DE90030800E /* Supporting Files */,
@@ -427,6 +460,7 @@
 			children = (
 				858D10051A7F62F000C7390E /* GPSSimulator */,
 				859ECAE61A813F1400734297 /* Resources */,
+				C55039B41AE4EA5000FBBF57 /* MapKit.framework */,
 				858D101B1A7F62F100C7390E /* GPSSimulatorTests */,
 				85073D2C1A7FC02600CFFF7E /* GPX */,
 				85073D3B1A7FC02600CFFF7E /* GPXTests */,
@@ -434,6 +468,7 @@
 				851D42EC1AE10DE90030800E /* GPSSimulator WatchKit App */,
 				858D10041A7F62F000C7390E /* Products */,
 				85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */,
+				C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -453,6 +488,8 @@
 		858D10051A7F62F000C7390E /* GPSSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				C55039BD1AE4EDCE00FBBF57 /* WormHole */,
+				C55039B61AE4EA6500FBBF57 /* GPSSimulator.entitlements */,
 				858D10081A7F62F000C7390E /* AppDelegate.swift */,
 				8539547D1ADD9406004BD5EB /* GPXDataModel.swift */,
 				85969DCE1A7FF47200A230AD /* LocationSimulator.swift */,
@@ -512,6 +549,24 @@
 				85EAB66F1A8353AF002C80F5 /* BrightFuturesTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C55039AA1AE4CC2E00FBBF57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */,
+				C55039B11AE4CC2E00FBBF57 /* BrightFuturesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C55039BD1AE4EDCE00FBBF57 /* WormHole */ = {
+			isa = PBXGroup;
+			children = (
+				C55039BA1AE4EDC100FBBF57 /* MMWormhole.h */,
+				C55039BB1AE4EDC100FBBF57 /* MMWormhole.m */,
+			);
+			name = WormHole;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -635,6 +690,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C55039B31AE4CC3C00FBBF57 /* PBXTargetDependency */,
 				85EAB6721A8353D9002C80F5 /* PBXTargetDependency */,
 				85073D411A7FC02600CFFF7E /* PBXTargetDependency */,
 				851D42F51AE10DE90030800E /* PBXTargetDependency */,
@@ -673,6 +729,7 @@
 				TargetAttributes = {
 					85073D2A1A7FC02600CFFF7E = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = X4M58U72S4;
 					};
 					85073D341A7FC02600CFFF7E = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -680,12 +737,31 @@
 					};
 					851D42DD1AE10DE90030800E = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = X4M58U72S4;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					851D42E71AE10DE90030800E = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = X4M58U72S4;
 					};
 					858D10021A7F62F000C7390E = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = X4M58U72S4;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					858D10171A7F62F000C7390E = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -705,6 +781,10 @@
 			productRefGroup = 858D10041A7F62F000C7390E /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = C55039AA1AE4CC2E00FBBF57 /* Products */;
+					ProjectRef = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
+				},
 				{
 					ProductGroup = 85EAB6681A8353AF002C80F5 /* Products */;
 					ProjectRef = 85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */;
@@ -735,6 +815,20 @@
 			fileType = wrapper.cfbundle;
 			path = BrightFuturesTests.xctest;
 			remoteRef = 85EAB66E1A8353AF002C80F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BrightFutures.framework;
+			remoteRef = C55039AE1AE4CC2E00FBBF57 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C55039B11AE4CC2E00FBBF57 /* BrightFuturesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BrightFuturesTests.xctest;
+			remoteRef = C55039B01AE4CC2E00FBBF57 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -850,6 +944,7 @@
 				8539547E1ADD9406004BD5EB /* GPXDataModel.swift in Sources */,
 				852D3EC41A88819600847F7F /* DetailViewController.swift in Sources */,
 				85FBD4D61A82B3A700F7A5A0 /* ViewControllerDataModel.swift in Sources */,
+				C55039BC1AE4EDC100FBBF57 /* MMWormhole.m in Sources */,
 				858D10091A7F62F000C7390E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -900,6 +995,11 @@
 			name = BrightFutures;
 			targetProxy = 85EAB6711A8353D9002C80F5 /* PBXContainerItemProxy */;
 		};
+		C55039B31AE4CC3C00FBBF57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BrightFutures;
+			targetProxy = C55039B21AE4CC3C00FBBF57 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -941,6 +1041,7 @@
 		85073D451A7FC02600CFFF7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -966,6 +1067,7 @@
 		85073D461A7FC02600CFFF7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1019,6 +1121,9 @@
 		851D42F71AE10DEA0030800E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "GPSSimulator WatchKit Extension/GPSSimulator WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1026,9 +1131,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "GPSSimulator WatchKit Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1036,13 +1142,17 @@
 		851D42F81AE10DEA0030800E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "GPSSimulator WatchKit Extension/GPSSimulator WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "GPSSimulator WatchKit Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1051,6 +1161,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1059,7 +1170,7 @@
 				);
 				IBSC_MODULE = GPSSimulator_WatchKit_Extension;
 				INFOPLIST_FILE = "GPSSimulator WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1071,12 +1182,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = GPSSimulator_WatchKit_Extension;
 				INFOPLIST_FILE = "GPSSimulator WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1118,7 +1230,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				GPSSIMULATOR_BUNDLE_PREFIX = com.baltoro;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1154,7 +1267,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				GPSSIMULATOR_BUNDLE_PREFIX = com.baltoro;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1166,9 +1280,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GPSSimulator/GPSSimulator.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GPSSimulator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GPSSimulator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1179,9 +1298,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GPSSimulator/GPSSimulator.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GPSSimulator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GPSSimulator-Bridging-Header.h";
 			};
 			name = Release;
