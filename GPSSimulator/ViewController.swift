@@ -24,9 +24,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
   override func viewDidLoad() {
     func setupRoute(route: MKRoute) {
       self.route = route
-      aktualniRouteStep = aktualniRouteStepGenerator(route, 30)
+      aktualniRouteStep = aktualniRouteStepGenerator(route, filter: 30)
       detailViewController.route = route
-      var configuration = Configuration.Directions(route)
+      let configuration = Configuration.Directions(route)
       detailViewController.configureView(configuration)
     }
     
@@ -39,7 +39,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
       
       mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
       mapView.delegate = self
-      var region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
+      let region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
       mapView.setRegion(region, animated: true)
       
       locationManager.delegate = self
@@ -48,7 +48,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
       //FIXME: patri to sem? Mam pocit, ze bych to volal dvakrat
 //      locationManager.startUpdatingLocation()
       
-      delay(1, locationManager.startUpdatingLocation)
+      delay(1, closure: locationManager.startUpdatingLocation)
 
     }
     
@@ -63,7 +63,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
       
       mapView.centerCoordinate = locationManager.fakeLocations.first!.coordinate
       mapView.delegate = self
-      var region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
+      let region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 1000, 1000)
       mapView.setRegion(region, animated: true)
       
       detailViewController.configureView(Configuration.GPX(path!))
@@ -72,10 +72,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
       locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
       
       
-      delay(10, locationManager.startUpdatingLocation)
+      delay(10, closure: locationManager.startUpdatingLocation)
 
     } else {
-      let (route,pole): (Future<MKRoute>,Future<FakeLocationsArray>) = setupScenario()
+      let (route,pole): (Future<MKRoute, NSError>,Future<FakeLocationsArray, NSError>) = setupScenario()
       route.onSuccess(callback:setupRoute)
       pole.onSuccess(callback: setupPole)
     }
@@ -103,7 +103,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "container" {
-      println("Volam segue pro container")
+      print("Volam segue pro container")
       detailViewController = segue.destinationViewController as! DetailViewController
     }
   }
@@ -112,13 +112,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
 //MARK: LocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate {
-  func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+  func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
     checkLocationAuthorizationStatus()
   }
   
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    let oldLocation = locations.first as? CLLocation
-    let newLocation = locations.last as? CLLocation
+  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    let oldLocation = locations.first
+    let newLocation = locations.last
 //    println("\(newLocation.course),  \(newLocation.speed)")
 //    let actualSteps = aktualniRouteStep( newLocation!)
 //    if let arrivingStep = actualSteps.0 {
@@ -134,7 +134,7 @@ extension ViewController: CLLocationManagerDelegate {
       if oldLocation?.coordinate.latitude != theNewLocation.coordinate.latitude || oldLocation?.coordinate.longitude != theNewLocation.coordinate.longitude {
         let region = MKCoordinateRegionMakeWithDistance(theNewLocation.coordinate, 100, 100)
         mapView.setRegion(region, animated: true)
-        var camera = MKMapCamera(lookingAtCenterCoordinate: theNewLocation.coordinate, fromEyeCoordinate: theOldLocation.coordinate, eyeAltitude: 800.0)
+        let camera = MKMapCamera(lookingAtCenterCoordinate: theNewLocation.coordinate, fromEyeCoordinate: theOldLocation.coordinate, eyeAltitude: 800.0)
         mapView.setCamera(camera, animated: true)
 //        var camera = mapView.camera
 //        camera.heading = locationManager.course(oldLocation!, point2: newLocation!)
@@ -148,7 +148,7 @@ extension ViewController: CLLocationManagerDelegate {
 //      return
 //    }
     if let newLocation = newLocation, oldLocation = oldLocation  {
-      var camera = MKMapCamera(lookingAtCenterCoordinate: newLocation.coordinate, fromEyeCoordinate: oldLocation.coordinate, eyeAltitude: 200.0)
+      let camera = MKMapCamera(lookingAtCenterCoordinate: newLocation.coordinate, fromEyeCoordinate: oldLocation.coordinate, eyeAltitude: 200.0)
 //      mapView.setCamera(camera, animated: true)
       detailViewController.drawCompleteRoute(detailViewController.gpxDataModel.trackPoints, currentPosition: newLocation, camera: camera, mod: .Scale(200))
     }

@@ -23,8 +23,8 @@ func delay(delay:Double, closure:()->()) {
 
 class LocationSimulator: CLLocationManager {
     
-  var previousLocation: CLLocation!
-  var currentLocation: CLLocation!
+  var previousLocation: CLLocation
+  var currentLocation: CLLocation
   let mapView: MKMapView
   var bKeepRunning: Bool = true
   
@@ -35,11 +35,11 @@ class LocationSimulator: CLLocationManager {
   
   init(mapView: MKMapView, filePath: String) {
     self.mapView = mapView
-    super.init()
-    self.loadGPXFile(filePath)
     let location = fakeLocations.first
     self.previousLocation = location!
     self.currentLocation = location!
+    super.init()
+    self.loadGPXFile(filePath)
   }
   
   init(mapView: MKMapView, fakeLocations: FakeLocationsArray) {
@@ -67,7 +67,7 @@ class LocationSimulator: CLLocationManager {
   func fakeNewLocation() {
     if currentLocation.distanceFromLocation(previousLocation) > distanceFilter {
       let loc = [previousLocation, currentLocation]
-      delegate.locationManager!(self, didUpdateLocations: loc)
+      delegate!.locationManager!(self as CLLocationManager, didUpdateLocations: loc)
       previousLocation = currentLocation
     }
     
@@ -85,7 +85,7 @@ class LocationSimulator: CLLocationManager {
       } else {
         currentLocation = fakeLocations[index]
       }
-      delay(updateInterval, fakeNewLocation)
+      delay(updateInterval, closure: fakeNewLocation)
     }
   }
 
@@ -129,9 +129,9 @@ class LocationSimulator: CLLocationManager {
     let p1 = MKMapPointForCoordinate(point1.coordinate)
     let p2 = MKMapPointForCoordinate(point2.coordinate)
     let dx = p2.x - p1.x
-    println("dx - \(dx)")
+    print("dx - \(dx)")
     let dy = p2.y - p1.y
-    println("dy = \(dy), dx/dy = \(dx/dy), atan  = \(rad * atan(dx/dy))")
+    print("dy = \(dy), dx/dy = \(dx/dy), atan  = \(rad * atan(dx/dy))")
     if dx > 0 {
       if dy > 0 { tcl = rad * atan(dx/dy) }
       if dy < 0 { tcl = 180 - rad * atan(-dx/dy) }

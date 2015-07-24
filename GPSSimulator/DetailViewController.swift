@@ -26,7 +26,7 @@ func drawPath(points: [CGPoint], intoImage image: UIImage, curLocation location:
   
   if let location = location {
     let pin = MKPinAnnotationView(annotation: nil, reuseIdentifier: nil)
-    pin.image.drawAtPoint(location)
+    pin.image!.drawAtPoint(location)
   }
   
   let retImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -100,19 +100,20 @@ class DetailViewController: UIViewController {
         options.region = MKCoordinateRegionMakeWithDistance(MKCoordinateForMapPoint(bodZmenySmeru), 200.0, 200.0)
     
     let snapshotter = MKMapSnapshotter(options: options)
-    snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot!, error: NSError!) -> Void in
+    snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot?, error: NSError?) -> Void in
       if error == nil {
-        var poleBodu = [CGPoint]()
-        for i in 0..<pocetArrivingBodu {
-          poleBodu.append(snapshot.pointForCoordinate(MKCoordinateForMapPoint(self.arrivingStep.polyline.points()[i])))
+        if let snapshot = snapshot {
+          var poleBodu = [CGPoint]()
+          for i in 0..<pocetArrivingBodu {
+            poleBodu.append(snapshot.pointForCoordinate(MKCoordinateForMapPoint(self.arrivingStep.polyline.points()[i])))
+          }
+          for j in 0..<pocetLeavingBodu {
+            poleBodu.append(snapshot.pointForCoordinate(MKCoordinateForMapPoint(self.leavingStep.polyline.points()[j])))
+          }
+          
+          //FIXME: tady curLocation ma asi neco rozumneho byt
+          self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: CGPointZero)
         }
-        for j in 0..<pocetLeavingBodu {
-          poleBodu.append(snapshot.pointForCoordinate(MKCoordinateForMapPoint(self.leavingStep.polyline.points()[j])))
-        }
-        
-        //FIXME: tady curLocation ma asi neco rozumneho byt
-        self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: CGPointZero)
-        
       }
     })
   }
@@ -131,7 +132,7 @@ class DetailViewController: UIViewController {
       }
       options.region = CoordinateRegionBoundingMapPoints(poleBodu)
       let snapshotter = MKMapSnapshotter(options: options)
-      snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot!, error: NSError!) -> Void in
+      snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot?, error: NSError?) -> Void in
         //TODO:
       })
 
@@ -146,7 +147,7 @@ class DetailViewController: UIViewController {
       let bodObratu = prichod!.polyline.points()[pocetBoduPrichod - 1]
       let bodObratuCoordinate = MKCoordinateForMapPoint(bodObratu)
       let bodObratuLocation = CLLocation(latitude: bodObratuCoordinate.latitude, longitude: bodObratuCoordinate.longitude)
-      let distance = bodObratuLocation.distanceFromLocation(currentPosition)
+      let distance = bodObratuLocation.distanceFromLocation(currentPosition!)
       options.region = MKCoordinateRegionMakeWithDistance(bodObratuCoordinate, 2.0 * distance, 2.0 * distance)
       let snapshotter = MKMapSnapshotter(options: options)
       
@@ -172,15 +173,17 @@ class DetailViewController: UIViewController {
     }
     
     let snapshotter = MKMapSnapshotter(options: options)
-    snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot!, error: NSError!) -> Void in
+    snapshotter.startWithCompletionHandler({ (snapshot: MKMapSnapshot?, error: NSError?) -> Void in
       if error == nil {
-        var poleBodu = trackPoints.map { snapshot.pointForCoordinate(CLLocationCoordinate2DMake(Double($0.latitude), Double($0.longitude))) }
-        // Nutne zkontrolovat; nektere body to konvertuje na NaN
-        poleBodu = poleBodu.filter { !($0.x.isNaN || $0.y.isNaN) }
-        if let currentPosition = currentPosition {
-          self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: snapshot.pointForCoordinate(currentPosition.coordinate))
-        } else {
-          self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: nil)
+        if let snapshot = snapshot {
+          var poleBodu = trackPoints.map { snapshot.pointForCoordinate(CLLocationCoordinate2DMake(Double($0.latitude), Double($0.longitude))) }
+          // Nutne zkontrolovat; nektere body to konvertuje na NaN
+          poleBodu = poleBodu.filter { !($0.x.isNaN || $0.y.isNaN) }
+          if let currentPosition = currentPosition {
+            self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: snapshot.pointForCoordinate(currentPosition.coordinate))
+          } else {
+            self.imageView.image = drawPath(poleBodu, intoImage: snapshot.image, curLocation: nil)
+          }
         }
       }
     })

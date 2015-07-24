@@ -26,50 +26,50 @@ func fakeLocationFromGPXFile(filePath: String) -> FakeLocationsArray? {
   } else { return nil }   // pokud tracks nemaji ani prvni prvek
 }
 
-func setupScenario() -> (Future<MKRoute>,Future<FakeLocationsArray>) {
+func setupScenario() -> (Future<MKRoute, NSError>,Future<FakeLocationsArray, NSError>) {
 
-  func obtainMapItemFromString(nazev: String) -> Future<MKMapItem> {
-    let promise = Promise<MKMapItem>()
+  func obtainMapItemFromString(nazev: String) -> Future<MKMapItem, NSError> {
+    let promise = Promise<MKMapItem, NSError>()
     let geocoder = CLGeocoder()
     
-    geocoder.geocodeAddressString(nazev) { (placemarks: [AnyObject]!, error: NSError!) in
+    geocoder.geocodeAddressString(nazev) { (placemarks: [CLPlacemark]?, error: NSError?) in
       var outError: NSError?
-      if placemarks != nil && placemarks.count > 0 {
-        let mark = placemarks[0] as! CLPlacemark
-        let MKMark = MKPlacemark(coordinate: mark.location.coordinate, addressDictionary: nil)
-        promise.success(MKMapItem(placemark: MKMark))
-      } else {
+      guard let placemarks = placemarks where placemarks.count > 0 else {
         if error != nil {
-          promise.failure(error)
+          promise.tryFailure(error!)
         } else {
           outError = NSError(domain: "com.baltoro.BrightFuturesTest1", code: 404, userInfo:[NSLocalizedDescriptionKey : "No routes found!"])
-          promise.failure(outError!)
+          promise.tryFailure(outError!)
         }
-        
+        return
       }
+      
+      let mark = placemarks[0]
+      let MKMark = MKPlacemark(coordinate: mark.location!.coordinate, addressDictionary: nil)
+      try! promise.success(MKMapItem(placemark: MKMark))
     }
     return promise.future
   }
 
-  func obtainRouteFrom(from: MKMapItem, to: MKMapItem) -> Future<MKRoute> {
-    let promise = Promise<MKRoute>()
+  func obtainRouteFrom(from: MKMapItem, to: MKMapItem) -> Future<MKRoute, NSError> {
+    let promise = Promise<MKRoute, NSError>()
     
     let request = MKDirectionsRequest()
-    request.setSource(from)
-    request.setDestination(to)
-    request.transportType = .Automobile
+    request.source = from
+    request.destination = to
+    request.transportType = MKDirectionsTransportType.Automobile
     
     let directions = MKDirections(request: request)
-    directions.calculateDirectionsWithCompletionHandler { (response: MKDirectionsResponse!, error: NSError!) in
+    directions.calculateDirectionsWithCompletionHandler { (response: MKDirectionsResponse?, error: NSError?) in
       var outError: NSError?
-      if response != nil && response.routes.count > 0 {
-        promise.success(response.routes[0] as! MKRoute)
+      if let response = response where response.routes.count > 0 {
+        try! promise.success(response.routes[0])
       } else {
         if error != nil {
-          promise.failure(error)
+          promise.tryFailure(error!)
         } else {
           outError = NSError(domain: "com.baltoro.BrightFuturesTest1", code: 404, userInfo:[NSLocalizedDescriptionKey : "No routes found!"])
-          promise.failure(outError!)
+          promise.tryFailure(outError!)
         }
       }
     }
@@ -87,15 +87,15 @@ func setupScenario() -> (Future<MKRoute>,Future<FakeLocationsArray>) {
     return poleBodu
   }
   
-  var srcItem: Future<MKMapItem> = obtainMapItemFromString("Prague")
-  var destItem: Future<MKMapItem> = obtainMapItemFromString("Brno")
+  var srcItem: Future<MKMapItem, NSError> = obtainMapItemFromString("Prague")
+  var destItem: Future<MKMapItem, NSError> = obtainMapItemFromString("Brno")
   let itemSequence = [srcItem, destItem]
   
-  let fut1: Future<[MKMapItem]> = FutureUtils.sequence(itemSequence)
-  let fut2: Future<MKRoute> = fut1.flatMap { krajniBody -> Future<MKRoute> in
-    return obtainRouteFrom(krajniBody[0], krajniBody[1])
+  let fut1: Future<[MKMapItem], NSError> = sequence(itemSequence)
+  let fut2: Future<MKRoute, NSError> = fut1.flatMap { krajniBody -> Future<MKRoute, NSError> in
+    return obtainRouteFrom(krajniBody[0], to: krajniBody[1])
   }
-  let fut3: Future<FakeLocationsArray> = fut2.map { route -> FakeLocationsArray in
+  let fut3: Future<FakeLocationsArray, NSError> = fut2.map { route -> FakeLocationsArray in
     return fakeLocationFromRoute(route)
   }
   
@@ -104,10 +104,10 @@ func setupScenario() -> (Future<MKRoute>,Future<FakeLocationsArray>) {
 
 func WayPointsFromMKRoute(route: MKRoute) -> [GPXWaypoint] {
   var pole = [GPXWaypoint]()
-  let steps:[MKRouteStep] = route.steps as! [MKRouteStep]
+  let steps:[MKRouteStep] = route.steps as [MKRouteStep]
   for step in steps {
-    var pocet = step.polyline.pointCount
-    var coord = MKCoordinateForMapPoint(step.polyline.points()[pocet-1])
+    let pocet = step.polyline.pointCount
+    let coord = MKCoordinateForMapPoint(step.polyline.points()[pocet-1])
     pole.append(GPXWaypoint(latitude: CGFloat(coord.latitude), longitude: CGFloat(coord.longitude)))
   }
   return pole
@@ -133,13 +133,13 @@ func aktualniWaypoit(waypoints: [GPXWaypoint], location: CLLocation, distance: D
 //}
 
 func aktualniRouteStepGenerator(route: MKRoute, filter: Double) -> ((currentLocation: CLLocation) -> (MKRouteStep?, MKRouteStep?)) {
-  var remainingSteps: [MKRouteStep] = route.steps as! [MKRouteStep]
+  var remainingSteps: [MKRouteStep] = route.steps as [MKRouteStep]
   var lastDistance: Double
   var arrivingStep: MKRouteStep? = nil
   var leavingStep: MKRouteStep? = nil
   
   func f(currentLocation : CLLocation) -> (MKRouteStep?, MKRouteStep?) {
-    var pocet = remainingSteps[0].polyline.pointCount
+    let pocet = remainingSteps[0].polyline.pointCount
     var coord = MKCoordinateForMapPoint(remainingSteps[0].polyline.points()[pocet-1])
     var location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
     var dist = location.distanceFromLocation(currentLocation)

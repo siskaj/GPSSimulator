@@ -61,12 +61,12 @@
 		85073DAA1A7FC10800CFFF7E /* GPXXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 85073D7B1A7FC10800CFFF7E /* GPXXML.m */; };
 		851D42E31AE10DE90030800E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D42E21AE10DE90030800E /* InterfaceController.swift */; };
 		851D42E51AE10DE90030800E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 851D42E41AE10DE90030800E /* Images.xcassets */; };
-		851D42E91AE10DE90030800E /* GPSSimulator WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 851D42E81AE10DE90030800E /* GPSSimulator WatchKit App.app */; };
 		851D42F11AE10DE90030800E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851D42EF1AE10DE90030800E /* Interface.storyboard */; };
 		851D42F31AE10DE90030800E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 851D42F21AE10DE90030800E /* Images.xcassets */; };
-		851D42F61AE10DE90030800E /* GPSSimulator WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 851D42DE1AE10DE90030800E /* GPSSimulator WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		852D3EC41A88819600847F7F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852D3EC31A88819600847F7F /* DetailViewController.swift */; };
 		8539547E1ADD9406004BD5EB /* GPXDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539547D1ADD9406004BD5EB /* GPXDataModel.swift */; };
+		857F66781B5D4C3A009EB096 /* GPSSimulator WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 851D42DE1AE10DE90030800E /* GPSSimulator WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		857F667B1B5D4C3A009EB096 /* GPSSimulator WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 851D42E81AE10DE90030800E /* GPSSimulator WatchKit App.app */; };
 		858D10091A7F62F000C7390E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D10081A7F62F000C7390E /* AppDelegate.swift */; };
 		858D100B1A7F62F000C7390E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D100A1A7F62F000C7390E /* ViewController.swift */; };
 		858D100E1A7F62F000C7390E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 858D100C1A7F62F000C7390E /* Main.storyboard */; };
@@ -105,19 +105,19 @@
 			remoteGlobalIDString = 85073D2A1A7FC02600CFFF7E;
 			remoteInfo = GPX;
 		};
-		851D42EA1AE10DE90030800E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 851D42E71AE10DE90030800E;
-			remoteInfo = "GPSSimulator WatchKit App";
-		};
-		851D42F41AE10DE90030800E /* PBXContainerItemProxy */ = {
+		857F66761B5D4C3A009EB096 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 851D42DD1AE10DE90030800E;
 			remoteInfo = "GPSSimulator WatchKit Extension";
+		};
+		857F66791B5D4C3A009EB096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 858D0FFB1A7F62F000C7390E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 851D42E71AE10DE90030800E;
+			remoteInfo = "GPSSimulator WatchKit App";
 		};
 		858D10191A7F62F000C7390E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -125,6 +125,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 858D10021A7F62F000C7390E;
 			remoteInfo = GPSSimulator;
+		};
+		85E4FC241B5D3755003F2C7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E9D45B001AF00659000F6CA7;
+			remoteInfo = "BrightFutures-Mac";
+		};
+		85E4FC261B5D3755003F2C7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E9D45B0A1AF00659000F6CA7;
+			remoteInfo = "BrightFutures-MacTests";
 		};
 		85EAB66C1A8353AF002C80F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -182,15 +196,26 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		851D42FE1AE10DEA0030800E /* Embed App Extensions */ = {
+		857F667C1B5D4C3A009EB096 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				851D42F61AE10DE90030800E /* GPSSimulator WatchKit Extension.appex in Embed App Extensions */,
+				857F66781B5D4C3A009EB096 /* GPSSimulator WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		857F667D1B5D4C3A009EB096 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				857F667B1B5D4C3A009EB096 /* GPSSimulator WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -546,7 +571,9 @@
 			isa = PBXGroup;
 			children = (
 				85EAB66D1A8353AF002C80F5 /* BrightFutures.framework */,
-				85EAB66F1A8353AF002C80F5 /* BrightFuturesTests.xctest */,
+				85EAB66F1A8353AF002C80F5 /* BrightFutures-iOSTests.xctest */,
+				85E4FC251B5D3755003F2C7D /* BrightFutures.framework */,
+				85E4FC271B5D3755003F2C7D /* BrightFutures-MacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -655,27 +682,28 @@
 			buildRules = (
 			);
 			dependencies = (
-				851D42EB1AE10DE90030800E /* PBXTargetDependency */,
 			);
 			name = "GPSSimulator WatchKit Extension";
 			productName = "GPSSimulator WatchKit Extension";
 			productReference = 851D42DE1AE10DE90030800E /* GPSSimulator WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		851D42E71AE10DE90030800E /* GPSSimulator WatchKit App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 851D42FC1AE10DEA0030800E /* Build configuration list for PBXNativeTarget "GPSSimulator WatchKit App" */;
 			buildPhases = (
 				851D42E61AE10DE90030800E /* Resources */,
+				857F667C1B5D4C3A009EB096 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				857F66771B5D4C3A009EB096 /* PBXTargetDependency */,
 			);
 			name = "GPSSimulator WatchKit App";
 			productName = "GPSSimulator WatchKit App";
 			productReference = 851D42E81AE10DE90030800E /* GPSSimulator WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp";
+			productType = "com.apple.product-type.application.watchapp2";
 		};
 		858D10021A7F62F000C7390E /* GPSSimulator */ = {
 			isa = PBXNativeTarget;
@@ -685,7 +713,7 @@
 				858D10001A7F62F000C7390E /* Frameworks */,
 				858D10011A7F62F000C7390E /* Resources */,
 				85073D431A7FC02600CFFF7E /* Embed Frameworks */,
-				851D42FE1AE10DEA0030800E /* Embed App Extensions */,
+				857F667D1B5D4C3A009EB096 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -693,7 +721,7 @@
 				C55039B31AE4CC3C00FBBF57 /* PBXTargetDependency */,
 				85EAB6721A8353D9002C80F5 /* PBXTargetDependency */,
 				85073D411A7FC02600CFFF7E /* PBXTargetDependency */,
-				851D42F51AE10DE90030800E /* PBXTargetDependency */,
+				857F667A1B5D4C3A009EB096 /* PBXTargetDependency */,
 			);
 			name = GPSSimulator;
 			productName = GPSSimulator;
@@ -724,7 +752,9 @@
 		858D0FFB1A7F62F000C7390E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Baltoro;
 				TargetAttributes = {
 					85073D2A1A7FC02600CFFF7E = {
@@ -803,6 +833,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		85E4FC251B5D3755003F2C7D /* BrightFutures.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BrightFutures.framework;
+			remoteRef = 85E4FC241B5D3755003F2C7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		85E4FC271B5D3755003F2C7D /* BrightFutures-MacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "BrightFutures-MacTests.xctest";
+			remoteRef = 85E4FC261B5D3755003F2C7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		85EAB66D1A8353AF002C80F5 /* BrightFutures.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -810,10 +854,10 @@
 			remoteRef = 85EAB66C1A8353AF002C80F5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		85EAB66F1A8353AF002C80F5 /* BrightFuturesTests.xctest */ = {
+		85EAB66F1A8353AF002C80F5 /* BrightFutures-iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = BrightFuturesTests.xctest;
+			path = "BrightFutures-iOSTests.xctest";
 			remoteRef = 85EAB66E1A8353AF002C80F5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -853,7 +897,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				851D42E91AE10DE90030800E /* GPSSimulator WatchKit App.app in Resources */,
 				851D42E51AE10DE90030800E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -975,15 +1018,15 @@
 			target = 85073D2A1A7FC02600CFFF7E /* GPX */;
 			targetProxy = 85073D401A7FC02600CFFF7E /* PBXContainerItemProxy */;
 		};
-		851D42EB1AE10DE90030800E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 851D42E71AE10DE90030800E /* GPSSimulator WatchKit App */;
-			targetProxy = 851D42EA1AE10DE90030800E /* PBXContainerItemProxy */;
-		};
-		851D42F51AE10DE90030800E /* PBXTargetDependency */ = {
+		857F66771B5D4C3A009EB096 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 851D42DD1AE10DE90030800E /* GPSSimulator WatchKit Extension */;
-			targetProxy = 851D42F41AE10DE90030800E /* PBXContainerItemProxy */;
+			targetProxy = 857F66761B5D4C3A009EB096 /* PBXContainerItemProxy */;
+		};
+		857F667A1B5D4C3A009EB096 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 851D42E71AE10DE90030800E /* GPSSimulator WatchKit App */;
+			targetProxy = 857F66791B5D4C3A009EB096 /* PBXContainerItemProxy */;
 		};
 		858D101A1A7F62F000C7390E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1056,6 +1099,7 @@
 				INFOPLIST_FILE = GPX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1078,6 +1122,7 @@
 				INFOPLIST_FILE = GPX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1099,6 +1144,7 @@
 				);
 				INFOPLIST_FILE = GPXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSSimulator.app/GPSSimulator";
 			};
@@ -1113,6 +1159,7 @@
 				);
 				INFOPLIST_FILE = GPXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSSimulator.app/GPSSimulator";
 			};
@@ -1133,9 +1180,13 @@
 				INFOPLIST_FILE = "GPSSimulator WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.baltoro.GPSSimulator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1151,9 +1202,13 @@
 				INFOPLIST_FILE = "GPSSimulator WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.baltoro.GPSSimulator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1163,6 +1218,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1170,11 +1226,12 @@
 				);
 				IBSC_MODULE = GPSSimulator_WatchKit_Extension;
 				INFOPLIST_FILE = "GPSSimulator WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baltoro.GPSSimulator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1185,14 +1242,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = GPSSimulator_WatchKit_Extension;
 				INFOPLIST_FILE = "GPSSimulator WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baltoro.GPSSimulator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1216,6 +1275,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1231,7 +1291,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GPSSIMULATOR_BUNDLE_PREFIX = com.baltoro;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1268,7 +1328,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GPSSIMULATOR_BUNDLE_PREFIX = com.baltoro;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1284,8 +1344,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GPSSimulator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GPSSimulator-Bridging-Header.h";
@@ -1302,8 +1363,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GPSSimulator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GPSSimulator-Bridging-Header.h";
@@ -1324,6 +1386,7 @@
 				);
 				INFOPLIST_FILE = GPSSimulatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSSimulator.app/GPSSimulator";
 			};
@@ -1339,6 +1402,7 @@
 				);
 				INFOPLIST_FILE = GPSSimulatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSSimulator.app/GPSSimulator";
 			};
