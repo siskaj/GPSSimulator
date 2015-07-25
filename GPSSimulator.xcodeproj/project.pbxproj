@@ -11,7 +11,7 @@
 		85073D361A7FC02600CFFF7E /* GPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; };
 		85073D3F1A7FC02600CFFF7E /* GPXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85073D3E1A7FC02600CFFF7E /* GPXTests.m */; };
 		85073D421A7FC02600CFFF7E /* GPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; };
-		85073D441A7FC02600CFFF7E /* GPX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		85073D441A7FC02600CFFF7E /* GPX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85073D2B1A7FC02600CFFF7E /* GPX.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		85073D7C1A7FC10800CFFF7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85073D4C1A7FC10800CFFF7E /* InfoPlist.strings */; };
 		85073D7D1A7FC10800CFFF7E /* GPX-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 85073D4E1A7FC10800CFFF7E /* GPX-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		85073D7E1A7FC10800CFFF7E /* GPXAuthor.h in Headers */ = {isa = PBXBuildFile; fileRef = 85073D4F1A7FC10800CFFF7E /* GPXAuthor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,6 +59,8 @@
 		85073DA81A7FC10800CFFF7E /* GPXWaypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 85073D791A7FC10800CFFF7E /* GPXWaypoint.m */; };
 		85073DA91A7FC10800CFFF7E /* GPXXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 85073D7A1A7FC10800CFFF7E /* GPXXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85073DAA1A7FC10800CFFF7E /* GPXXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 85073D7B1A7FC10800CFFF7E /* GPXXML.m */; };
+		850D32291B62C50300C8F23F /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EAB66D1A8353AF002C80F5 /* BrightFutures.framework */; };
+		850D322A1B62C52000C8F23F /* BrightFutures.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85EAB66D1A8353AF002C80F5 /* BrightFutures.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		851D42E31AE10DE90030800E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D42E21AE10DE90030800E /* InterfaceController.swift */; };
 		851D42E51AE10DE90030800E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 851D42E41AE10DE90030800E /* Images.xcassets */; };
 		851D42F11AE10DE90030800E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851D42EF1AE10DE90030800E /* Interface.storyboard */; };
@@ -104,6 +106,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 85073D2A1A7FC02600CFFF7E;
 			remoteInfo = GPX;
+		};
+		850D32271B62C4E600C8F23F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E9DF0814194470060083F7F2;
+			remoteInfo = "BrightFutures-iOS";
 		};
 		857F66761B5D4C3A009EB096 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -154,34 +163,6 @@
 			remoteGlobalIDString = E9DF0820194470060083F7F2;
 			remoteInfo = BrightFuturesTests;
 		};
-		85EAB6711A8353D9002C80F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E9DF0814194470060083F7F2;
-			remoteInfo = BrightFutures;
-		};
-		C55039AE1AE4CC2E00FBBF57 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E9DF0815194470060083F7F2;
-			remoteInfo = BrightFutures;
-		};
-		C55039B01AE4CC2E00FBBF57 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E9DF0820194470060083F7F2;
-			remoteInfo = BrightFuturesTests;
-		};
-		C55039B21AE4CC3C00FBBF57 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E9DF0814194470060083F7F2;
-			remoteInfo = BrightFutures;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -191,6 +172,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				850D322A1B62C52000C8F23F /* BrightFutures.framework in Embed Frameworks */,
 				85073D441A7FC02600CFFF7E /* GPX.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -303,7 +285,6 @@
 		85AEB2DD1AD40EA20031E359 /* MapKitHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitHelpers.swift; sourceTree = "<group>"; };
 		85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = ../BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
 		85FBD4D51A82B3A700F7A5A0 /* ViewControllerDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDataModel.swift; sourceTree = "<group>"; };
-		C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BrightFutures.xcodeproj; path = BrightFutures/BrightFutures.xcodeproj; sourceTree = "<group>"; };
 		C55039B41AE4EA5000FBBF57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C55039B61AE4EA6500FBBF57 /* GPSSimulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GPSSimulator.entitlements; sourceTree = "<group>"; };
 		C55039B81AE4EB7700FBBF57 /* GPSSimulator WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GPSSimulator WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -339,6 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850D32291B62C50300C8F23F /* BrightFutures.framework in Frameworks */,
 				C55039B51AE4EA5000FBBF57 /* MapKit.framework in Frameworks */,
 				85073D421A7FC02600CFFF7E /* GPX.framework in Frameworks */,
 			);
@@ -493,7 +475,6 @@
 				851D42EC1AE10DE90030800E /* GPSSimulator WatchKit App */,
 				858D10041A7F62F000C7390E /* Products */,
 				85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */,
-				C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -574,15 +555,6 @@
 				85EAB66F1A8353AF002C80F5 /* BrightFutures-iOSTests.xctest */,
 				85E4FC251B5D3755003F2C7D /* BrightFutures.framework */,
 				85E4FC271B5D3755003F2C7D /* BrightFutures-MacTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C55039AA1AE4CC2E00FBBF57 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */,
-				C55039B11AE4CC2E00FBBF57 /* BrightFuturesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -718,8 +690,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C55039B31AE4CC3C00FBBF57 /* PBXTargetDependency */,
-				85EAB6721A8353D9002C80F5 /* PBXTargetDependency */,
+				850D32281B62C4E600C8F23F /* PBXTargetDependency */,
 				85073D411A7FC02600CFFF7E /* PBXTargetDependency */,
 				857F667A1B5D4C3A009EB096 /* PBXTargetDependency */,
 			);
@@ -812,10 +783,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = C55039AA1AE4CC2E00FBBF57 /* Products */;
-					ProjectRef = C55039A91AE4CC2E00FBBF57 /* BrightFutures.xcodeproj */;
-				},
-				{
 					ProductGroup = 85EAB6681A8353AF002C80F5 /* Products */;
 					ProjectRef = 85EAB6671A8353AF002C80F5 /* BrightFutures.xcodeproj */;
 				},
@@ -859,20 +826,6 @@
 			fileType = wrapper.cfbundle;
 			path = "BrightFutures-iOSTests.xctest";
 			remoteRef = 85EAB66E1A8353AF002C80F5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C55039AF1AE4CC2E00FBBF57 /* BrightFutures.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = BrightFutures.framework;
-			remoteRef = C55039AE1AE4CC2E00FBBF57 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C55039B11AE4CC2E00FBBF57 /* BrightFuturesTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = BrightFuturesTests.xctest;
-			remoteRef = C55039B01AE4CC2E00FBBF57 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1018,6 +971,11 @@
 			target = 85073D2A1A7FC02600CFFF7E /* GPX */;
 			targetProxy = 85073D401A7FC02600CFFF7E /* PBXContainerItemProxy */;
 		};
+		850D32281B62C4E600C8F23F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "BrightFutures-iOS";
+			targetProxy = 850D32271B62C4E600C8F23F /* PBXContainerItemProxy */;
+		};
 		857F66771B5D4C3A009EB096 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 851D42DD1AE10DE90030800E /* GPSSimulator WatchKit Extension */;
@@ -1032,16 +990,6 @@
 			isa = PBXTargetDependency;
 			target = 858D10021A7F62F000C7390E /* GPSSimulator */;
 			targetProxy = 858D10191A7F62F000C7390E /* PBXContainerItemProxy */;
-		};
-		85EAB6721A8353D9002C80F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = BrightFutures;
-			targetProxy = 85EAB6711A8353D9002C80F5 /* PBXContainerItemProxy */;
-		};
-		C55039B31AE4CC3C00FBBF57 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = BrightFutures;
-			targetProxy = C55039B21AE4CC3C00FBBF57 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1291,7 +1239,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GPSSIMULATOR_BUNDLE_PREFIX = com.baltoro;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1328,7 +1276,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GPSSIMULATOR_BUNDLE_PREFIX = com.baltoro;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1343,8 +1291,10 @@
 				CODE_SIGN_ENTITLEMENTS = GPSSimulator/GPSSimulator.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = GPSSimulator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1362,8 +1312,10 @@
 				CODE_SIGN_ENTITLEMENTS = GPSSimulator/GPSSimulator.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = GPSSimulator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.baltoro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

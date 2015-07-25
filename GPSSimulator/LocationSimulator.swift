@@ -20,6 +20,20 @@ func delay(delay:Double, closure:()->()) {
     dispatch_get_main_queue(), closure)
 }
 
+func loadGPXFile(filePath: String) -> [CLLocation] {
+    let root = GPXParser.parseGPXAtPath(filePath)
+    var locations = [CLLocation]()
+    if let track = root.tracks.first as? GPXTrack {
+        if let segment = track.tracksegments.first as? GPXTrackSegment {
+            let trackpoints = segment.trackpoints as! [GPXTrackPoint]
+            locations = trackpoints.map { trackpoint -> CLLocation in
+                return CLLocation(latitude: Double(trackpoint.latitude), longitude: Double(trackpoint.longitude))
+            }
+        }
+    }
+    return locations
+}
+
 
 class LocationSimulator: CLLocationManager {
     
@@ -35,11 +49,11 @@ class LocationSimulator: CLLocationManager {
   
   init(mapView: MKMapView, filePath: String) {
     self.mapView = mapView
+    self.fakeLocations = loadGPXFile(filePath)
     let location = fakeLocations.first
     self.previousLocation = location!
     self.currentLocation = location!
     super.init()
-    self.loadGPXFile(filePath)
   }
   
   init(mapView: MKMapView, fakeLocations: FakeLocationsArray) {
@@ -51,18 +65,6 @@ class LocationSimulator: CLLocationManager {
     super.init()
   }
   
-  func loadGPXFile(filePath: String) {
-    let root = GPXParser.parseGPXAtPath(filePath)
-    
-    if let track = root.tracks.first as? GPXTrack {
-      if let segment = track.tracksegments.first as? GPXTrackSegment {
-        let trackpoints = segment.trackpoints as! [GPXTrackPoint]
-        fakeLocations = trackpoints.map { trackpoint -> CLLocation in
-          return CLLocation(latitude: Double(trackpoint.latitude), longitude: Double(trackpoint.longitude))
-        }
-      }
-    }
-  }
     
   func fakeNewLocation() {
     if currentLocation.distanceFromLocation(previousLocation) > distanceFilter {
